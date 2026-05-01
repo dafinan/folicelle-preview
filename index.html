@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folicelle — A Deeper Beauty</title>
+<meta name="description" content="A dermatologist-reviewed daily hair wellness ritual, formulated with Eastern botanicals and Western clinical science.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   FOLICELLE — HOMEPAGE V2
+   v2 changes:
+   - Hero: full-bleed background image + centered overlay text + video play button (mockup placeholder)
+   - Moss Green brand-narrative band added between hero and pathways (early color presence)
+   - Asian-model studio photography section integrated mid-page (after Three Pathways)
+   - Otherwise design-system parity with v1 mockups
+   ============================================================ */
+
+:root {
+  --brown: #563622;
+  --terracotta: #AF7153;
+  --ancestral-gold: #DECCA5;
+  --moss-green: #9A9762;
+  --moss-deep: #7E7B4E;
+  --cream: #F5EFE2;
+  --cream-soft: #EFE8D8;
+  --gold-light: #ECDFC0;
+  --brown-soft: #6B4530;
+  --brown-deep: #3C2616;
+  --line: rgba(86,54,34,0.18);
+  --display: 'DM Serif Display', 'Canela', Georgia, serif;
+  --serif: 'Cormorant Garamond', 'Canela', Georgia, serif;
+  --sans: 'Inter', 'Apercu Pro', -apple-system, system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--brown);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+.container-narrow { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+
+.mockup-note {
+  background: rgba(175,113,83,0.08);
+  border-top: 1px dashed var(--terracotta);
+  border-bottom: 1px dashed var(--terracotta);
+  padding: 16px 32px;
+  font-size: 12px;
+  color: var(--terracotta);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+.mockup-note strong { font-weight: 600; }
+.v-tag {
+  display: inline-block;
+  background: var(--terracotta);
+  color: var(--cream);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  margin-left: 6px;
+  font-weight: 600;
+  border-radius: 2px;
+}
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: var(--cream); border-bottom: 1px solid var(--line); padding: 18px 0; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+.nav-wordmark { font-family: var(--display); font-size: 22px; letter-spacing: 0.08em; color: var(--ancestral-gold); text-transform: uppercase; text-decoration: none; }
+.nav-wordmark sup { font-size: 9px; vertical-align: super; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { color: var(--brown); text-decoration: none; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; }
+.nav-links a:hover { color: var(--terracotta); }
+.nav-right { display: flex; gap: 18px; align-items: center; }
+.nav-cta { background: var(--brown); color: var(--ancestral-gold); padding: 10px 22px; border-radius: 2px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+.nav-cta:hover { background: var(--terracotta); }
+.nav-cart { width: 32px; height: 32px; border: 1px solid var(--brown); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--brown); text-decoration: none; }
+.nav-cart:hover { background: var(--brown); color: var(--ancestral-gold); }
+@media (max-width: 880px) { .nav-links { display: none; } }
+
+/* BUTTONS */
+.btn-primary { background: var(--brown); color: var(--ancestral-gold); padding: 16px 36px; border-radius: 2px; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; font-weight: 500; transition: all 0.25s; display: inline-block; border: 1px solid var(--brown); }
+.btn-primary:hover { background: var(--terracotta); border-color: var(--terracotta); }
+.btn-secondary { background: transparent; color: var(--brown); padding: 16px 30px; border-radius: 2px; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; font-weight: 500; border: 1px solid var(--brown); transition: all 0.25s; display: inline-block; }
+.btn-secondary:hover { background: var(--brown); color: var(--ancestral-gold); }
+
+/* ============================================================
+   HERO V2 — full-bleed background, centered overlay, video play button
+   ============================================================ */
+.hero-v2 {
+  position: relative;
+  min-height: 720px;
+  height: 92vh;
+  max-height: 880px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-bg img, .hero-bg video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.hero-bg::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(60,38,22,0.25) 0%,
+    rgba(60,38,22,0.4) 50%,
+    rgba(60,38,22,0.65) 100%
+  );
+}
+.hero-video-tag {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 5;
+  background: rgba(245,239,226,0.15);
+  border: 1px solid rgba(245,239,226,0.4);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 2px;
+  backdrop-filter: blur(6px);
+}
+.hero-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: rgba(245,239,226,0.2);
+  border: 1px solid rgba(245,239,226,0.6);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  margin-top: -180px;
+}
+.hero-play-btn:hover {
+  background: rgba(222,204,165,0.3);
+  border-color: var(--ancestral-gold);
+  transform: translate(-50%, -50%) scale(1.05);
+  margin-top: -180px;
+}
+.hero-play-btn::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 18px solid var(--cream);
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  margin-left: 6px;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 4;
+  max-width: 720px;
+  padding: 0 32px;
+  color: var(--cream);
+}
+.hero-fh {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--ancestral-gold);
+  margin-bottom: 32px;
+}
+.hero-headline {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(44px, 6vw, 80px);
+  line-height: 1.0;
+  margin-bottom: 24px;
+  font-weight: 400;
+  color: var(--cream);
+}
+.hero-headline em { font-style: normal; color: var(--ancestral-gold); }
+
+.hero-sub {
+  font-size: 17px;
+  line-height: 1.65;
+  margin-bottom: 36px;
+  font-weight: 300;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--cream);
+  opacity: 0.95;
+}
+.hero-ctas {
+  display: flex; gap: 16px; align-items: center; justify-content: center;
+  flex-wrap: wrap;
+}
+.hero-v2 .btn-primary {
+  background: var(--ancestral-gold);
+  color: var(--brown);
+  border-color: var(--ancestral-gold);
+}
+.hero-v2 .btn-primary:hover { background: var(--terracotta); color: var(--cream); border-color: var(--terracotta); }
+.hero-v2 .btn-secondary {
+  color: var(--cream); border-color: var(--cream); background: transparent;
+}
+.hero-v2 .btn-secondary:hover { background: var(--cream); color: var(--brown); }
+
+.hero-microline {
+  margin-top: 36px;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.8;
+}
+.hero-microline span { margin: 0 12px; }
+
+.hero-scroll-cue {
+  position: absolute;
+  bottom: 28px; left: 50%; transform: translateX(-50%);
+  z-index: 4;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.65;
+}
+
+@media (max-width: 720px) {
+  .hero-v2 { min-height: 600px; height: 85vh; }
+  .hero-play-btn { width: 72px; height: 72px; margin-top: -160px; }
+}
+
+/* ============================================================
+   MOSS GREEN BAND — brand narrative pillars (NEW EARLY POSITION)
+   ============================================================ */
+.moss-band {
+  background: var(--moss-green);
+  color: var(--cream);
+  padding: 80px 0 90px;
+  position: relative;
+}
+.moss-band::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: rgba(245,239,226,0.2);
+}
+.moss-band-grid {
+  display: grid;
+  grid-template-columns: 1fr 2.2fr;
+  gap: 60px;
+  align-items: center;
+}
+.moss-band-fh {
+  font-family: var(--display);
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cream);
+  font-weight: 400;
+}
+.moss-band-fh span { display: block; }
+.moss-band-fh span:nth-child(2) { padding-left: 1.2em; font-style: italic; text-transform: none; color: var(--ancestral-gold); }
+.moss-band-fh span:nth-child(3) { padding-left: 2.4em; }
+
+.moss-band-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.moss-pillar {
+  border-top: 1px solid rgba(245,239,226,0.35);
+  padding-top: 22px;
+}
+.moss-pillar h4 {
+  font-family: var(--display);
+  font-size: 19px;
+  color: var(--ancestral-gold);
+  margin-bottom: 8px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.moss-pillar p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--cream);
+  opacity: 0.95;
+  font-weight: 300;
+}
+@media (max-width: 980px) {
+  .moss-band-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 700px) {
+  .moss-band-pillars { grid-template-columns: 1fr; gap: 22px; }
+}
+
+/* SECTIONS — shared */
+section.standard { padding: 110px 0; position: relative; }
+section.standard.tight { padding: 80px 0; }
+.section-eyebrow { font-family: var(--sans); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--terracotta); font-weight: 500; margin-bottom: 24px; }
+.section-title { font-family: var(--display); font-weight: 400; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.1; color: var(--brown); margin-bottom: 28px; }
+.section-title.italic { font-style: italic; }
+.section-lead { font-size: 18px; line-height: 1.7; color: var(--brown); font-weight: 300; max-width: 680px; margin-bottom: 48px; }
+
+/* THREE PATHWAYS */
+.pathways { background: var(--cream); }
+.pathways-header { text-align: center; margin-bottom: 64px; }
+.pathways-header .section-lead { margin: 0 auto; }
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.pathway {
+  background: var(--cream-soft);
+  padding: 44px 36px 48px;
+  display: flex; flex-direction: column;
+  position: relative;
+  transition: background 0.3s ease;
+}
+.pathway:hover { background: var(--gold-light); }
+.pathway-image {
+  aspect-ratio: 4/3;
+  margin-bottom: 28px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--gold-light);
+}
+.pathway-image img { width: 100%; height: 100%; object-fit: cover; }
+.pathway-eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.pathway-name { font-family: var(--display); font-size: 28px; line-height: 1.15; color: var(--brown); margin-bottom: 8px; font-weight: 400; }
+.pathway-price { font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--brown); opacity: 0.85; margin-bottom: 22px; }
+.pathway-body { font-size: 14px; line-height: 1.65; color: var(--brown); font-weight: 300; margin-bottom: 28px; flex-grow: 1; }
+.pathway-cta { display: inline-block; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; padding: 12px 22px; border: 1px solid var(--brown); color: var(--brown); font-weight: 500; align-self: flex-start; transition: all 0.25s; }
+.pathway-cta:hover { background: var(--brown); color: var(--ancestral-gold); }
+@media (max-width: 1000px) { .pathways-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   ASIAN MODEL EDITORIAL SECTION (NEW)
+   ============================================================ */
+.editorial-band {
+  position: relative;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: var(--brown-deep);
+  overflow: hidden;
+}
+.editorial-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.editorial-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 30% center;
+}
+.editorial-bg::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg,
+    rgba(60,38,22,0.3) 0%,
+    rgba(60,38,22,0.55) 60%,
+    rgba(60,38,22,0.85) 100%
+  );
+}
+.editorial-content {
+  position: relative;
+  z-index: 2;
+  color: var(--cream);
+  max-width: 580px;
+  padding: 100px 64px 100px 32px;
+  margin-right: 80px;
+}
+.editorial-content .section-eyebrow {
+  color: var(--ancestral-gold);
+  opacity: 0.85;
+}
+.editorial-content h2 {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  margin-bottom: 24px;
+  font-weight: 400;
+  color: var(--cream);
+}
+.editorial-content p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--cream);
+  opacity: 0.9;
+  font-weight: 300;
+  margin-bottom: 18px;
+}
+.editorial-tag {
+  position: absolute;
+  bottom: 24px; left: 32px;
+  z-index: 3;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--cream);
+  opacity: 0.6;
+}
+@media (max-width: 980px) {
+  .editorial-band { min-height: 540px; align-items: flex-end; justify-content: flex-start; }
+  .editorial-content { padding: 60px 32px; margin-right: 0; }
+}
+
+/* HE SHOU WU */
+.heshou { background: var(--brown); color: var(--ancestral-gold); position: relative; overflow: hidden; }
+.heshou .section-eyebrow { color: var(--ancestral-gold); opacity: 0.8; }
+.heshou-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+.heshou-image { aspect-ratio: 3/4; border-radius: 2px; overflow: hidden; background: var(--brown-deep); position: relative; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(222,204,165,0.2); }
+.heshou-placeholder { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--ancestral-gold); opacity: 0.55; text-align: center; padding: 40px; letter-spacing: 0.04em; }
+.heshou-placeholder .ph-tag { display: block; font-style: normal; font-family: var(--sans); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; margin-bottom: 16px; opacity: 0.8; }
+.heshou-fh-large { font-family: var(--display); font-size: clamp(32px, 4vw, 56px); line-height: 1.05; color: var(--ancestral-gold); margin-bottom: 36px; letter-spacing: 0.02em; text-transform: uppercase; font-weight: 400; }
+.heshou-fh-large span { display: block; }
+.heshou-fh-large span:nth-child(2) { margin-left: 1.2em; font-style: italic; text-transform: none; }
+.heshou-body { font-size: 16px; line-height: 1.85; margin-bottom: 22px; color: var(--ancestral-gold); opacity: 0.95; font-weight: 300; }
+.heshou-link { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ancestral-gold); text-decoration: none; border-bottom: 1px solid rgba(222,204,165,0.5); padding-bottom: 4px; display: inline-block; margin-top: 24px; }
+.heshou-link:hover { color: var(--terracotta); border-color: var(--terracotta); }
+@media (max-width: 920px) { .heshou-grid { grid-template-columns: 1fr; gap: 50px; } }
+
+/* PLATFORM */
+.platform { background: var(--cream); }
+.platform-header { text-align: center; margin-bottom: 64px; }
+.platform-header .section-lead { margin: 0 auto; }
+.platform-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; }
+.pillar { background: var(--cream-soft); padding: 36px 28px 38px; border: 1px solid var(--line); border-radius: 2px; transition: all 0.3s; }
+.pillar:hover { background: var(--gold-light); transform: translateY(-2px); }
+.pillar-icon { width: 48px; height: 48px; margin-bottom: 22px; display: flex; align-items: center; justify-content: center; background: var(--ancestral-gold); border-radius: 50%; font-family: var(--display); color: var(--brown); font-size: 20px; }
+.pillar-name { font-family: var(--display); font-size: 20px; line-height: 1.2; color: var(--brown); margin-bottom: 10px; font-weight: 400; }
+.pillar-body { font-size: 14px; line-height: 1.6; color: var(--brown); font-weight: 300; }
+.platform-cta-row { text-align: center; margin-top: 56px; }
+@media (max-width: 1000px) { .platform-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .platform-grid { grid-template-columns: 1fr; } }
+
+/* SAFAHI */
+.safahi { background: var(--cream-soft); }
+.safahi-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 70px; align-items: center; }
+.safahi-portrait { background: linear-gradient(135deg, var(--gold-light), var(--ancestral-gold)); aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px; position: relative; }
+.safahi-portrait::before { content: ""; position: absolute; inset: 24px; border: 1px solid rgba(86,54,34,0.25); }
+.safahi-portrait div { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--brown); letter-spacing: 0.06em; }
+.safahi-portrait .ph-tag { display: block; font-family: var(--sans); font-style: normal; text-transform: uppercase; font-size: 11px; letter-spacing: 0.24em; margin-bottom: 14px; opacity: 0.6; }
+.safahi-credential { font-family: var(--sans); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 14px; font-weight: 500; }
+.safahi-name { font-family: var(--display); font-size: clamp(28px, 3vw, 40px); line-height: 1.1; color: var(--brown); margin-bottom: 8px; font-weight: 400; }
+.safahi-title { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--brown); opacity: 0.75; margin-bottom: 28px; }
+.safahi-body { font-size: 16px; line-height: 1.75; color: var(--brown); font-weight: 300; margin-bottom: 32px; }
+.placeholder-flag { display: inline-block; background: rgba(175,113,83,0.12); color: var(--terracotta); font-family: var(--sans); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; padding: 5px 10px; font-weight: 500; margin-bottom: 12px; border: 1px dashed var(--terracotta); }
+.safahi-quote { font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.4; color: var(--brown); border-left: 2px solid var(--terracotta); padding-left: 24px; margin-bottom: 18px; font-weight: 400; }
+.safahi-attribution { font-size: 13px; letter-spacing: 0.06em; color: var(--brown); opacity: 0.7; }
+@media (max-width: 920px) { .safahi-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+/* CUSTOMER STORIES */
+.stories { background: var(--cream); }
+.stories-header { text-align: center; margin-bottom: 64px; }
+.stories-header .section-lead { margin: 0 auto; }
+.stories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.story-card { background: var(--cream-soft); padding: 36px 32px; border-top: 2px solid var(--terracotta); border-radius: 2px; }
+.story-stars { color: var(--terracotta); letter-spacing: 0.2em; font-size: 14px; margin-bottom: 18px; }
+.story-body { font-family: var(--serif); font-size: 18px; line-height: 1.55; color: var(--brown); margin-bottom: 24px; font-style: italic; font-weight: 400; }
+.story-attribution { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brown); opacity: 0.75; font-weight: 500; }
+.story-attribution span { display: block; font-style: italic; font-family: var(--serif); font-size: 13px; text-transform: none; letter-spacing: 0; opacity: 0.85; margin-top: 4px; font-weight: 400; }
+.stories-link-row { text-align: center; margin-top: 48px; }
+.stories-link { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brown); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+.stories-link:hover { color: var(--terracotta); border-color: var(--terracotta); }
+@media (max-width: 900px) { .stories-grid { grid-template-columns: 1fr; } }
+
+/* FOUNDER */
+.founder { background: var(--moss-deep); color: var(--cream); }
+.founder-inner { max-width: 820px; margin: 0 auto; padding: 0 32px; text-align: center; }
+.founder .section-eyebrow { color: var(--ancestral-gold); opacity: 0.85; }
+.founder-portrait { width: 110px; height: 110px; background: rgba(245,239,226,0.18); border: 1px solid rgba(245,239,226,0.35); border-radius: 50%; margin: 0 auto 32px; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-style: italic; font-size: 11px; color: var(--cream); opacity: 0.7; letter-spacing: 0.04em; text-align: center; }
+.founder-quote { font-family: var(--display); font-style: italic; font-size: clamp(22px, 2.6vw, 32px); line-height: 1.3; color: var(--cream); margin-bottom: 32px; font-weight: 400; }
+.founder-body { font-size: 16px; line-height: 1.85; color: var(--cream); margin-bottom: 22px; text-align: left; font-weight: 300; opacity: 0.95; }
+.founder-sig { font-family: var(--display); font-style: italic; font-size: 22px; color: var(--ancestral-gold); margin-top: 24px; }
+
+/* PRESS */
+.press { background: var(--cream); padding: 70px 0; text-align: center; }
+.press-eyebrow { font-family: var(--sans); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--brown); opacity: 0.55; margin-bottom: 36px; }
+.press-row { display: flex; justify-content: center; align-items: center; gap: 64px; flex-wrap: wrap; }
+.press-logo { font-family: var(--display); font-size: 18px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brown); opacity: 0.45; font-style: italic; }
+
+/* FINAL CTA */
+.final { position: relative; min-height: 540px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: 100px 32px; }
+.final-bg { position: absolute; inset: 0; z-index: 0; }
+.final-bg img { width: 100%; height: 100%; object-fit: cover; }
+.final-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(60,38,22,0.4) 0%, rgba(60,38,22,0.75) 100%); }
+.final-content { position: relative; z-index: 2; color: var(--cream); max-width: 760px; }
+.final h2 { font-family: var(--display); font-style: italic; font-size: clamp(32px, 4.5vw, 56px); line-height: 1.1; margin-bottom: 24px; color: var(--cream); font-weight: 400; }
+.final p { font-size: 17px; line-height: 1.7; margin-bottom: 36px; color: var(--cream); font-weight: 300; opacity: 0.95; }
+.final .btn-primary { background: var(--ancestral-gold); color: var(--brown); border-color: var(--ancestral-gold); }
+.final .btn-primary:hover { background: var(--terracotta); color: var(--cream); border-color: var(--terracotta); }
+.final-email-row { margin-top: 36px; padding-top: 32px; border-top: 1px solid rgba(245,239,226,0.25); }
+.final-email-label { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream); opacity: 0.85; margin-bottom: 16px; }
+.final-email-form { display: flex; gap: 8px; max-width: 460px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+.final-email-form input { flex: 1; min-width: 220px; padding: 14px 18px; background: rgba(245,239,226,0.1); border: 1px solid rgba(245,239,226,0.4); color: var(--cream); font-family: var(--sans); font-size: 14px; border-radius: 2px; }
+.final-email-form input::placeholder { color: rgba(245,239,226,0.6); }
+.final-email-form button { padding: 14px 28px; background: var(--cream); color: var(--brown); border: none; font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; cursor: pointer; border-radius: 2px; }
+.final-footer { margin-top: 48px; font-family: var(--display); font-size: 14px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ancestral-gold); }
+
+/* FOOTER */
+.footer { background: var(--brown-deep); color: var(--cream); padding: 80px 0 40px; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 48px; margin-bottom: 64px; }
+.footer-brand-block { max-width: 360px; }
+.footer-wordmark { font-family: var(--display); font-size: 28px; letter-spacing: 0.08em; color: var(--ancestral-gold); text-transform: uppercase; margin-bottom: 18px; display: block; text-decoration: none; }
+.footer-wordmark sup { font-size: 11px; vertical-align: super; }
+.footer-tagline { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--cream); opacity: 0.85; margin-bottom: 28px; line-height: 1.5; }
+.footer-newsletter { font-family: var(--sans); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ancestral-gold); margin-bottom: 14px; font-weight: 500; }
+.footer-newsletter-form { display: flex; gap: 6px; max-width: 320px; }
+.footer-newsletter-form input { flex: 1; padding: 11px 14px; background: transparent; border: 1px solid rgba(245,239,226,0.3); color: var(--cream); font-family: var(--sans); font-size: 13px; border-radius: 2px; }
+.footer-newsletter-form input::placeholder { color: rgba(245,239,226,0.5); }
+.footer-newsletter-form button { padding: 11px 18px; background: var(--ancestral-gold); color: var(--brown); border: none; font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; cursor: pointer; border-radius: 2px; }
+.footer-col-title { font-family: var(--sans); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ancestral-gold); margin-bottom: 18px; font-weight: 500; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a { color: var(--cream); font-size: 13px; text-decoration: none; font-weight: 300; opacity: 0.85; }
+.footer-col a:hover { opacity: 1; color: var(--ancestral-gold); }
+.footer-bottom { border-top: 1px solid rgba(245,239,226,0.18); padding-top: 28px; display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-start; }
+.footer-disclaimer { font-family: var(--serif); font-style: italic; font-size: 11px; line-height: 1.6; color: var(--cream); opacity: 0.55; max-width: 700px; }
+.footer-meta { font-family: var(--sans); font-size: 11px; letter-spacing: 0.08em; color: var(--cream); opacity: 0.55; }
+.footer-meta a { color: var(--cream); text-decoration: none; margin-left: 16px; }
+.footer-social { display: flex; gap: 12px; margin-top: 18px; }
+.footer-social a { width: 32px; height: 32px; border: 1px solid rgba(245,239,226,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--cream); text-decoration: none; font-size: 11px; }
+.footer-social a:hover { background: var(--ancestral-gold); color: var(--brown); border-color: var(--ancestral-gold); }
+@media (max-width: 1000px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
+@media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; } }
+</style>
+<link rel="stylesheet" href="css/prototype.css">
+</head>
+<body>
+
+<div class="preview-banner">
+  <strong>Preview Mode</strong>
+  <em>Homepage — design preview, not a live site. Stakeholder review only.</em>
+  <span class="pb-divider">·</span>
+  <a href="mailto:dafina@covetandmane.com?subject=Folicelle%20Preview%20Feedback&body=Page%3A%20Homepage%0A%0AYour%20feedback%3A%0A">Send feedback</a>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-wordmark">FOLICELLE<sup>™</sup></a>
+    <div class="nav-links">
+      <a href="product/foundation.html">Shop</a>
+      <a href="method.html">The Method</a>
+      <a href="/community">Community</a>
+      <a href="/about">About</a>
+      <a href="coming-soon.html">Login</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <div class="nav-right">
+      <a href="product/foundation.html" class="nav-cta">Subscribe</a>
+      <a href="coming-soon.html" class="nav-cart">0</a>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu-overlay"></div>
+<div class="mobile-menu" role="navigation" aria-label="Mobile menu">
+  <button class="mobile-menu-close" aria-label="Close menu">×</button>
+  <a href="product/foundation.html">Shop</a>
+  <a href="method.html">The Method</a>
+  <a href="coming-soon.html">Community</a>
+  <a href="coming-soon.html">About</a>
+  <a href="coming-soon.html">Login</a>
+  <a href="product/foundation.html" class="mobile-menu-cta">Subscribe</a>
+</div>
+
+<!-- HERO V2 — full-bleed, centered overlay, video placeholder -->
+<section class="hero-v2">
+  <div class="hero-bg">
+    <!-- In production this becomes a <video autoplay muted loop playsinline poster="hero.webp"> with .mp4 + .webm sources -->
+    <img src="images/hero.webp" alt="Editorial close-up — hair on skin, soft natural light, Folicelle brand photography">
+  </div>
+
+  <div class="hero-video-tag">▶ &nbsp;Video plays in production</div>
+
+  <button class="hero-play-btn" aria-label="Play brand film"></button>
+
+  <div class="hero-overlay">
+    <div class="hero-fh">A&nbsp;DEEPER&nbsp;BEAUTY</div>
+    <h1 class="hero-headline">
+      Ancient botanical,<br><em>modern nutrition.</em>
+    </h1>
+    <p class="hero-sub">
+      A dermatologist-reviewed daily ritual for hair wellness — formulated with He Shou Wu and a clinical-strength foundation built for the way women's bodies move now.
+    </p>
+    <div class="hero-ctas">
+      <a href="assessment.html" class="btn-primary">Take the Assessment</a>
+      <a href="product/foundation.html" class="btn-secondary">Shop Foundation</a>
+    </div>
+    <div class="hero-microline">
+      Dermatologist-reviewed<span>·</span>Naturopath-formulated<span>·</span>Third-party tested
+    </div>
+  </div>
+
+  <div class="hero-scroll-cue">↓ Three ways in</div>
+</section>
+
+<!-- MOSS GREEN BAND — Brand narrative pillars (NEW EARLY) -->
+<section class="moss-band">
+  <div class="container">
+    <div class="moss-band-grid">
+      <div class="moss-band-fh">
+        <span>True to</span>
+        <span>ourselves,</span>
+        <span>by design.</span>
+      </div>
+      <div class="moss-band-pillars">
+        <div class="moss-pillar">
+          <h4>Discovered in Nature</h4>
+          <p>The natural world holds the foundation of healthy hair. We start with botanicals our ancestors trusted — beginning with He Shou Wu, the 1,000-year-old Eastern hair tonic.</p>
+        </div>
+        <div class="moss-pillar">
+          <h4>Surfaced by Science</h4>
+          <p>Therapeutic dosages, methylated forms where it matters, and an independent dermatology review. Heritage paired with the precision of modern clinical nutrition.</p>
+        </div>
+        <div class="moss-pillar">
+          <h4>True to Ourselves</h4>
+          <p>Beauty starts beneath the surface and is honest about what it can and can't do. No overpromising. A daily ritual for the way you actually live.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE PATHWAYS -->
+<section class="standard pathways" id="pathways">
+  <div class="container">
+    <div class="pathways-header">
+      <div class="section-eyebrow">Three ways in</div>
+      <h2 class="section-title italic">Begin where you are.</h2>
+      <p class="section-lead">
+        Folicelle is a hair wellness platform with a daily ritual. Choose the entry point that fits where you are right now — there's no wrong order.
+      </p>
+    </div>
+    <div class="pathways-grid">
+
+      <div class="pathway">
+        <div class="pathway-image">
+          <img src="images/product-front.jpg" alt="Folicelle Foundation supplement carton">
+        </div>
+        <div class="pathway-eyebrow">Most Chosen · The Daily Ritual</div>
+        <h3 class="pathway-name">Folicelle Foundation</h3>
+        <p class="pathway-price">From $61.30/month effective on the 90-day plan</p>
+        <p class="pathway-body">
+          Two gummies daily, with a meal. The full hair wellness platform — course, community, toolkit, Care Network — included free with subscription. A Hair Wellness Protocol PDF from Dr. Safahi included with the 90-day prepaid.
+        </p>
+        <a href="product/foundation.html" class="pathway-cta">Start the Ritual →</a>
+      </div>
+
+      <div class="pathway">
+        <div class="pathway-image">
+          <img src="images/lilies.webp" alt="Soft botanical photography — pink lilies">
+        </div>
+        <div class="pathway-eyebrow">For the Curious · The Education</div>
+        <h3 class="pathway-name">The Hair Optimization Method</h3>
+        <p class="pathway-price">$79 one-time · lifetime access</p>
+        <p class="pathway-body">
+          The 8-module course on hormones, nutrition, stress, environment, and how to advocate for yourself in a medical system that doesn't quite know where hair belongs. No supplement required.
+        </p>
+        <a href="method.html" class="pathway-cta">Start the Method →</a>
+      </div>
+
+      <div class="pathway">
+        <div class="pathway-image">
+          <img src="images/gummies-pinch.jpg" alt="Editorial gummy product photography">
+        </div>
+        <div class="pathway-eyebrow">Sample · Travel · Gift</div>
+        <h3 class="pathway-name">Weekly Ritual Packets</h3>
+        <p class="pathway-price">$29 starter pack</p>
+        <p class="pathway-body">
+          Seven days of Folicelle Foundation. The same formulation, in a packet built for travel, gifting, or trying the ritual before committing to a subscription. Includes a 30-day course preview.
+        </p>
+        <a href="coming-soon.html" class="pathway-cta">Try a Week →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ASIAN MODEL EDITORIAL SECTION (NEW) -->
+<section class="editorial-band">
+  <div class="editorial-bg">
+    <img src="images/hero.webp" alt="Editorial portrait — model in soft natural light, dark hair on warm skin, brand photography session">
+  </div>
+  <div class="editorial-content">
+    <div class="section-eyebrow">A practice, not a product</div>
+    <h2>The first beauty<br>is the one you can't see.</h2>
+    <p>
+      Folicelle was built around a simple truth — that the foundation of healthy hair lives beneath the surface, and the wisdom to read it is yours to hold.
+    </p>
+    <p>
+      Two gummies a day. Three to six months for the rhythm to show. A platform built around the ritual to guide you through it.
+    </p>
+  </div>
+  <div class="editorial-tag"><em>From the Folicelle 2026 brand session</em></div>
+</section>
+
+<!-- HE SHOU WU STORY -->
+<section class="standard heshou" id="heshou">
+  <div class="container">
+    <div class="heshou-grid">
+      <div class="heshou-image">
+        <div class="heshou-placeholder">
+          <span class="ph-tag">Visual Placeholder</span>
+          <em>Hand-rendered botanical illustration<br>of He Shou Wu (Polygonum multiflorum) root,<br>brand-book aesthetic — terracotta and<br>ancestral gold on brown ground</em>
+        </div>
+      </div>
+      <div>
+        <div class="section-eyebrow">The hero ingredient</div>
+        <div class="heshou-fh-large">
+          <span>HE&nbsp;SHOU&nbsp;WU</span>
+          <span><em>or, "Black-Haired Mr. He"</em></span>
+        </div>
+        <p class="heshou-body">
+          More than a thousand years ago, Chinese herbal records tell the story of Mr. He — a man whose hair returned to its natural color after years of taking the root of <em>Polygonum multiflorum</em>. The name stuck. The herb has anchored Eastern hair tonics ever since.
+        </p>
+        <p class="heshou-body">
+          Folicelle Foundation is built on that lineage. We pair the heritage botanical with a modern clinical-strength foundation — methylated B-vitamins, the methylated form of folate, copper, zinc, tyrosine, selenium, chlorella — to nourish hair from within at therapeutic dosages.
+        </p>
+        <p class="heshou-body">
+          Dermatologist-reviewed. Naturopath-formulated. Two gummies a day, with a meal. Three to six months for the rhythm to show.
+        </p>
+        <a href="coming-soon.html" class="heshou-link">Learn more about our ingredients →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUR-PILLAR PLATFORM -->
+<section class="standard platform" id="platform">
+  <div class="container">
+    <div class="platform-header">
+      <div class="section-eyebrow">More than a supplement</div>
+      <h2 class="section-title italic">A platform for the whole journey.</h2>
+      <p class="section-lead">
+        Subscribers receive the full Folicelle platform free — four pillars built around the daily ritual.
+      </p>
+    </div>
+    <div class="platform-grid">
+      <div class="pillar">
+        <div class="pillar-icon">01</div>
+        <h3 class="pillar-name">The Hair Optimization Method</h3>
+        <p class="pillar-body">An 8-module course on hormones, nutrition, stress, environment, and self-advocacy — taught by our Medical Advisor, Dr. Miriam Safahi.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">02</div>
+        <h3 class="pillar-name">The Self-Advocacy Toolkit</h3>
+        <p class="pillar-body">A Hair Wellness Assessment, a Doctor Script Generator, a Photo Tracker, and a Lab Results module — built to make your medical appointments more useful.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">03</div>
+        <h3 class="pillar-name">The Cohort Community</h3>
+        <p class="pillar-body">A private community organized by hair stage — Postpartum, Perimenopause, Metabolic, and Foundation paths. Curated, never crowded.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">04</div>
+        <h3 class="pillar-name">The Care Network</h3>
+        <p class="pillar-body">Curated at-home testing partner discounts on the panels we recommend in Module 4 of the Method. Member pricing on relevant labs.</p>
+      </div>
+    </div>
+    <div class="platform-cta-row">
+      <a href="method.html" class="btn-secondary">Explore the platform</a>
+    </div>
+  </div>
+</section>
+
+<!-- SAFAHI -->
+<section class="standard safahi">
+  <div class="container">
+    <div class="safahi-grid">
+      <div class="safahi-portrait">
+        <div>
+          <span class="ph-tag">Visual Placeholder</span>
+          <em>Dr. Miriam Safahi headshot —<br>soft natural light, editorial,<br>clinical setting or natural ground</em>
+        </div>
+      </div>
+      <div>
+        <div class="safahi-credential">Reviewed by a board-certified dermatologist</div>
+        <h2 class="safahi-name">Dr. Miriam Safahi, MD</h2>
+        <div class="safahi-title">Medical Advisor, Folicelle</div>
+        <p class="safahi-body">
+          Dr. Safahi is a board-certified dermatologist whose work focuses on the gap between dermatology and the rest of women's health. She independently reviewed every ingredient in Folicelle Foundation and teaches Modules 1 through 6 and Module 8 of The Hair Optimization Method.
+        </p>
+        <div class="placeholder-flag">Placeholder — Awaiting Verbatim Approval</div>
+        <p class="safahi-quote">
+          "Most of what affects a woman's hair never reaches her dermatologist's office. The Method is the conversation I want every patient to have walked in already understanding."
+        </p>
+        <div class="safahi-attribution">— Dr. Miriam Safahi, MD</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOMER STORIES -->
+<section class="standard stories">
+  <div class="container">
+    <div class="stories-header">
+      <div class="section-eyebrow">From our community</div>
+      <h2 class="section-title italic">Real journeys, in their own words.</h2>
+      <p class="section-lead">
+        Folicelle is a long ritual. These reflections come from women three months in or further. Reviews accumulate as our community grows.
+      </p>
+    </div>
+    <div class="stories-grid">
+      <div class="story-card">
+        <div class="story-stars">★★★★★</div>
+        <p class="story-body">"I came in for the supplement and stayed for Module 7. The doctor script changed my next dermatology appointment completely — for the first time, I walked in knowing what to ask for."</p>
+        <div class="story-attribution">[Placeholder review]<span>Sarah K. · Perimenopause Path · Day 92</span></div>
+      </div>
+      <div class="story-card">
+        <div class="story-stars">★★★★★</div>
+        <p class="story-body">"Three months postpartum and the shedding had me googling at 2 a.m. The Cohort was the first place that felt like adults talking — and the gummies are easy to remember. I take them with breakfast."</p>
+        <div class="story-attribution">[Placeholder review]<span>Maya R. · Postpartum Path · Day 104</span></div>
+      </div>
+      <div class="story-card">
+        <div class="story-stars">★★★★★</div>
+        <p class="story-body">"I was skeptical of another hair supplement. The reason I subscribed is that the platform actually teaches you what's happening underneath. The supplement is the easy part. The framework is what I needed."</p>
+        <div class="story-attribution">[Placeholder review]<span>Lauren T. · Foundation Path · Day 138</span></div>
+      </div>
+    </div>
+    <div class="stories-link-row">
+      <a href="coming-soon.html" class="stories-link">Read all reviews →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="standard founder">
+  <div class="founder-inner">
+    <div class="section-eyebrow">A note from our founder</div>
+    <div class="founder-portrait">Dafina<br>portrait<br>placeholder</div>
+    <p class="founder-quote">Hair wellness was never the job of one specialty.</p>
+    <p class="founder-body">
+      I built Folicelle because the conversations women need about their hair don't happen in a fifteen-minute appointment. The hormonal shifts, the nutritional gaps, the stress patterns — they all show up in your hair, but no single doctor's office is set up to read them together.
+    </p>
+    <p class="founder-body">
+      So I built the framework I wished I'd had. A daily ritual that pairs Eastern heritage with Western clinical science. A platform that teaches you the layers underneath the surface — and gives you the language to walk into any office and be heard.
+    </p>
+    <p class="founder-body">
+      A Deeper Beauty is the simple idea behind all of it: that real beauty starts with what's beneath, and the wisdom to read it is yours to hold.
+    </p>
+    <div class="founder-sig">— Dafina</div>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section class="press">
+  <div class="press-eyebrow">As seen in <em>(coming soon)</em></div>
+  <div class="press-row">
+    <div class="press-logo">[Press Logo 1]</div>
+    <div class="press-logo">[Press Logo 2]</div>
+    <div class="press-logo">[Press Logo 3]</div>
+    <div class="press-logo">[Press Logo 4]</div>
+    <div class="press-logo">[Press Logo 5]</div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="final-bg">
+    <img src="images/leaves.webp" alt="">
+  </div>
+  <div class="final-content">
+    <h2>Not sure where to start?</h2>
+    <p>Take the 60-second Hair Wellness Assessment. We'll route you to the path that fits — supplement, method, or community — based on what you tell us.</p>
+    <div class="hero-ctas" style="justify-content:center;">
+      <a href="assessment.html" class="btn-primary">Take the Assessment</a>
+    </div>
+    <div class="final-email-row">
+      <div class="final-email-label">Or stay in touch — we'll send the founder's notes</div>
+      <form class="final-email-form" onsubmit="event.preventDefault(); alert('Mockup — email signup wired in production.');">
+        <input type="email" placeholder="Your email address" aria-label="Email address">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="final-footer">A&nbsp;Deeper&nbsp;Beauty</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="send-feedback-block">
+  Reviewing this preview? <a href="mailto:dafina@covetandmane.com?subject=Folicelle%20Preview%20Feedback%20%E2%80%94%20Homepage&body=Page%3A%20Homepage%0A%0AYour%20feedback%3A%0A">Send feedback to Dafina</a>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-block">
+        <a href="index.html" class="footer-wordmark">FOLICELLE<sup>™</sup></a>
+        <p class="footer-tagline">A dermatologist-reviewed daily ritual for hair wellness. Built around a platform — not just a supplement.</p>
+        <div class="footer-newsletter">Newsletter</div>
+        <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Mockup — email signup wired in production.');">
+          <input type="email" placeholder="Email address">
+          <button type="submit">Join</button>
+        </form>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="#" aria-label="Pinterest">PIN</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Shop</div>
+        <ul>
+          <li><a href="product/foundation.html">Folicelle Foundation</a></li>
+          <li><a href="coming-soon.html">Weekly Ritual Packets</a></li>
+          <li><a href="method.html">The Hair Optimization Method</a></li>
+          <li><a href="/membership">Folicelle Membership</a></li>
+          <li><a href="/welcome">Welcome (gift trial)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Platform</div>
+        <ul>
+          <li><a href="method.html">The Method</a></li>
+          <li><a href="/community">The Cohort</a></li>
+          <li><a href="/toolkit">Self-Advocacy Toolkit</a></li>
+          <li><a href="/care-network">Care Network</a></li>
+          <li><a href="assessment.html">Take the Assessment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">About</div>
+        <ul>
+          <li><a href="/about">Our Story</a></li>
+          <li><a href="/medical-advisor">Medical Advisor</a></li>
+          <li><a href="coming-soon.html">Ingredients</a></li>
+          <li><a href="coming-soon.html">Journal</a></li>
+          <li><a href="/press">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Support</div>
+        <ul>
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/shipping">Shipping &amp; Returns</a></li>
+          <li><a href="/satisfaction">90-day Promise</a></li>
+          <li><a href="coming-soon.html">Sign In</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">
+        These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Consult your physician before beginning any new supplement, particularly if you are pregnant, nursing, or taking prescription medication.
+      </p>
+      <div>
+        <div class="footer-meta">© 2026 Folicelle, a Covet Brands Group company.</div>
+        <div class="footer-meta" style="margin-top:8px;">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/accessibility">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/prototype.js" defer></script>
+</body>
+</html>

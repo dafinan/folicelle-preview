@@ -1,0 +1,174 @@
+/* ============================================================
+   FOLICELLE PROTOTYPE — shared additions
+   Layered on top of each page's own styles. Adds:
+   - Preview banner (replaces dev-only mockup-note)
+   - Mobile hamburger menu
+   - Send Feedback link styling
+   - Header scroll-shadow
+   ============================================================ */
+
+/* PREVIEW BANNER (replaces .mockup-note) */
+.preview-banner {
+  background: #563622; /* Brown */
+  color: #DECCA5;       /* Ancestral Gold */
+  padding: 10px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 110;
+}
+.preview-banner strong { font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
+.preview-banner em { font-style: italic; opacity: 0.85; }
+.preview-banner a {
+  color: #DECCA5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.preview-banner a:hover { color: #AF7153; /* Terracotta */ }
+.preview-banner .pb-divider { opacity: 0.4; }
+@media (max-width: 600px) {
+  .preview-banner { font-size: 11px; padding: 10px 16px; gap: 8px; }
+  .preview-banner .pb-divider { display: none; }
+}
+
+/* HEADER SCROLL SHADOW */
+.nav.scrolled {
+  box-shadow: 0 4px 20px rgba(86,54,34,0.08);
+  transition: box-shadow 0.25s ease;
+}
+
+/* MOBILE HAMBURGER */
+.nav-hamburger {
+  display: none;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 1px solid #563622;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 14px;
+  transition: all 0.2s;
+}
+.nav-hamburger:hover { background: #563622; }
+.nav-hamburger:hover span { background: #DECCA5; }
+.nav-hamburger span {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: #563622;
+  transition: all 0.3s;
+}
+@media (max-width: 880px) {
+  .nav-hamburger { display: flex; }
+}
+
+/* MOBILE MENU DRAWER */
+.mobile-menu {
+  position: fixed;
+  top: 0; right: -100%;
+  width: 86%;
+  max-width: 380px;
+  height: 100vh;
+  background: #F5EFE2;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  padding: 64px 32px 32px;
+  transition: right 0.35s ease;
+  box-shadow: -8px 0 32px rgba(60,38,22,0.18);
+}
+.mobile-menu.open { right: 0; }
+
+.mobile-menu-close {
+  position: absolute;
+  top: 16px; right: 18px;
+  background: none;
+  border: none;
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px;
+  color: #563622;
+  cursor: pointer;
+  line-height: 0.8;
+  padding: 4px 12px;
+}
+.mobile-menu-close:hover { color: #AF7153; }
+
+.mobile-menu a {
+  display: block;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(86,54,34,0.18);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #563622;
+  text-decoration: none;
+}
+.mobile-menu a:hover { color: #AF7153; }
+.mobile-menu .mobile-menu-cta {
+  margin-top: 32px;
+  background: #563622;
+  color: #DECCA5;
+  text-align: center;
+  border-radius: 2px;
+  padding: 18px 24px;
+  letter-spacing: 0.14em;
+  border-bottom: none;
+}
+.mobile-menu .mobile-menu-cta:hover { background: #AF7153; color: #DECCA5; }
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(60,38,22,0.55);
+  z-index: 199;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.mobile-menu-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* PREVENT BODY SCROLL when menu open */
+body.menu-open { overflow: hidden; }
+
+/* SEND FEEDBACK FOOTER LINK */
+.send-feedback-block {
+  background: #3C2616; /* Brown Deep */
+  color: #DECCA5;
+  padding: 18px 32px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  border-top: 1px solid rgba(245,239,226,0.12);
+}
+.send-feedback-block a {
+  display: inline-block;
+  margin-left: 8px;
+  background: #DECCA5;
+  color: #563622;
+  padding: 7px 18px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 11px;
+  transition: all 0.2s;
+}
+.send-feedback-block a:hover { background: #AF7153; color: #F5EFE2; }
