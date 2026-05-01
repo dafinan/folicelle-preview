@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folicelle — The Cohort</title>
+<meta name="description" content="The Cohort — Folicelle's private community organized by hair stage. Postpartum, Perimenopause, Metabolic, and Foundation paths.">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/prototype.css">
+<style>
+:root {
+  --brown:#563622; --terracotta:#AF7153; --ancestral-gold:#DECCA5;
+  --moss-green:#9A9762; --moss-deep:#7E7B4E; --cream:#F5EFE2;
+  --cream-soft:#EFE8D8; --gold-light:#ECDFC0; --brown-deep:#3C2616;
+  --line:rgba(86,54,34,0.18);
+  --display:'DM Serif Display','Canela',Georgia,serif;
+  --serif:'Cormorant Garamond','Canela',Georgia,serif;
+  --sans:'Inter','Apercu Pro',-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.65;color:var(--brown);background:var(--cream);-webkit-font-smoothing:antialiased;}
+img{max-width:100%;height:auto;display:block;}
+.container{max-width:1280px;margin:0 auto;padding:0 32px;}
+.container-narrow{max-width:920px;margin:0 auto;padding:0 32px;}
+
+/* NAV (parity with v2 mockups) */
+.nav{position:sticky;top:0;z-index:100;background:var(--cream);border-bottom:1px solid var(--line);padding:18px 0;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 32px;}
+.nav-wordmark{font-family:var(--display);font-size:22px;letter-spacing:0.08em;color:var(--ancestral-gold);text-transform:uppercase;text-decoration:none;}
+.nav-wordmark sup{font-size:9px;vertical-align:super;}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{color:var(--brown);text-decoration:none;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;}
+.nav-links a:hover{color:var(--terracotta);}
+.nav-right{display:flex;gap:18px;align-items:center;}
+.nav-cta{background:var(--brown);color:var(--ancestral-gold);padding:10px 22px;border-radius:2px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;}
+.nav-cta:hover{background:var(--terracotta);}
+.nav-cart{width:32px;height:32px;border:1px solid var(--brown);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--brown);text-decoration:none;}
+@media (max-width:880px){.nav-links{display:none;}}
+
+/* BUTTONS */
+.btn-primary{background:var(--brown);color:var(--ancestral-gold);padding:16px 36px;border-radius:2px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-weight:500;transition:all 0.25s;display:inline-block;border:1px solid var(--brown);}
+.btn-primary:hover{background:var(--terracotta);border-color:var(--terracotta);}
+.btn-secondary{background:transparent;color:var(--brown);padding:16px 30px;border-radius:2px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-weight:500;border:1px solid var(--brown);transition:all 0.25s;display:inline-block;}
+.btn-secondary:hover{background:var(--brown);color:var(--ancestral-gold);}
+
+/* HERO */
+.hero{position:relative;background:var(--cream-soft);padding:100px 0 110px;overflow:hidden;}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;}
+.hero-fh{font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:0.42em;text-transform:uppercase;color:var(--terracotta);margin-bottom:32px;}
+.hero-headline{font-family:var(--display);font-style:italic;font-size:clamp(38px,5vw,64px);line-height:1.04;color:var(--brown);margin-bottom:28px;font-weight:400;}
+.hero-sub{font-size:17px;line-height:1.7;color:var(--brown);margin-bottom:36px;max-width:540px;font-weight:300;}
+.hero-ctas{display:flex;gap:18px;align-items:center;margin-bottom:0;flex-wrap:wrap;}
+.hero-visual{aspect-ratio:4/5;background:var(--gold-light);position:relative;border-radius:2px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;border:1px solid var(--line);}
+.hero-visual::before{content:"";position:absolute;inset:24px;border:1px solid rgba(86,54,34,0.15);}
+.hero-visual-text{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--brown);opacity:0.6;letter-spacing:0.04em;}
+.hero-visual-text span.ph-tag{display:block;font-family:var(--sans);font-style:normal;font-size:10px;letter-spacing:0.32em;text-transform:uppercase;margin-bottom:14px;opacity:0.85;}
+@media (max-width:920px){.hero{padding:60px 0 70px;}.hero-grid{grid-template-columns:1fr;gap:40px;}}
+
+/* SECTION SHARED */
+section.std{padding:110px 0;position:relative;}
+section.std.tight{padding:80px 0;}
+section.std.alt{background:var(--cream-soft);}
+.section-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--terracotta);font-weight:500;margin-bottom:24px;}
+.section-title{font-family:var(--display);font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;color:var(--brown);margin-bottom:28px;}
+.section-title.italic{font-style:italic;}
+.section-lead{font-size:18px;line-height:1.7;color:var(--brown);font-weight:300;max-width:680px;margin-bottom:48px;}
+.section-header-center{text-align:center;margin-bottom:64px;}
+.section-header-center .section-lead{margin:0 auto;}
+
+/* COHORTS GRID */
+.cohorts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.cohort-card{background:var(--cream);padding:48px 40px 44px;display:flex;flex-direction:column;transition:background 0.3s;}
+.cohort-card:hover{background:var(--gold-light);}
+.cohort-eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:var(--terracotta);margin-bottom:14px;font-weight:500;}
+.cohort-name{font-family:var(--display);font-style:italic;font-size:32px;line-height:1.1;color:var(--brown);margin-bottom:8px;font-weight:400;}
+.cohort-meta{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--brown);opacity:0.75;margin-bottom:22px;}
+.cohort-body{font-size:14px;line-height:1.65;color:var(--brown);font-weight:300;margin-bottom:24px;flex-grow:1;}
+.cohort-voices{padding:18px 22px;background:var(--cream-soft);border-left:2px solid var(--terracotta);margin-bottom:24px;}
+.cohort-voices-label{font-family:var(--sans);font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--brown);opacity:0.7;margin-bottom:10px;font-weight:500;}
+.cohort-voices p{font-family:var(--serif);font-style:italic;font-size:13px;line-height:1.5;color:var(--brown);margin-bottom:8px;}
+.cohort-voices p:last-child{margin-bottom:0;}
+.cohort-cta{display:inline-block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;padding:10px 0;color:var(--brown);font-weight:500;align-self:flex-start;border-bottom:1px solid var(--brown);}
+.cohort-cta:hover{color:var(--terracotta);border-color:var(--terracotta);}
+@media (max-width:880px){.cohorts-grid{grid-template-columns:1fr;}}
+
+/* COMMUNITY VALUE — 3 col */
+.community-value{background:var(--moss-green);color:var(--cream);}
+.community-value .section-eyebrow{color:var(--ancestral-gold);}
+.community-value .section-title{color:var(--cream);}
+.community-value .section-lead{color:var(--cream);opacity:0.95;}
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:48px;}
+.value-item{}
+.value-icon{width:44px;height:44px;border:1px solid var(--ancestral-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-style:italic;color:var(--ancestral-gold);font-size:16px;margin-bottom:22px;}
+.value-name{font-family:var(--display);font-size:19px;color:var(--ancestral-gold);margin-bottom:10px;font-weight:400;line-height:1.2;}
+.value-body{font-size:13px;line-height:1.7;color:var(--cream);font-weight:300;opacity:0.95;}
+@media (max-width:1000px){.value-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:600px){.value-grid{grid-template-columns:1fr;}}
+
+/* MODERATION PROMISE */
+.moderation{background:var(--cream-soft);}
+.moderation-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:center;}
+.moderation-list{list-style:none;}
+.moderation-list li{padding:18px 0;border-top:1px solid var(--line);position:relative;padding-left:36px;font-size:15px;line-height:1.7;color:var(--brown);font-weight:300;}
+.moderation-list li:first-child{border-top:none;}
+.moderation-list li::before{content:"⌖";position:absolute;left:0;top:18px;color:var(--terracotta);font-family:var(--display);font-size:18px;}
+.moderation-list li strong{font-weight:500;font-family:var(--sans);font-size:14px;letter-spacing:0.04em;display:block;margin-bottom:4px;color:var(--brown);}
+@media (max-width:880px){.moderation-grid{grid-template-columns:1fr;gap:40px;}}
+
+/* JOIN CARDS */
+.join{background:var(--cream);}
+.join-header{text-align:center;margin-bottom:64px;}
+.join-header .section-lead{margin:0 auto;}
+.join-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
+.join-card{background:var(--cream);padding:56px 48px;}
+.join-card-2{background:var(--brown);color:var(--ancestral-gold);}
+.join-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--terracotta);margin-bottom:18px;font-weight:500;}
+.join-card-2 .join-eyebrow{color:var(--ancestral-gold);opacity:0.85;}
+.join-name{font-family:var(--display);font-size:30px;line-height:1.15;color:var(--brown);margin-bottom:8px;font-weight:400;}
+.join-card-2 .join-name{color:var(--ancestral-gold);}
+.join-price{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--brown);opacity:0.85;margin-bottom:28px;}
+.join-card-2 .join-price{color:var(--ancestral-gold);opacity:0.95;}
+.join-features{list-style:none;padding-top:24px;border-top:1px solid var(--line);margin-bottom:28px;}
+.join-card-2 .join-features{border-color:rgba(222,204,165,0.3);}
+.join-features li{position:relative;padding-left:22px;margin-bottom:12px;font-size:14px;line-height:1.55;color:var(--brown);font-weight:300;}
+.join-card-2 .join-features li{color:var(--ancestral-gold);opacity:0.95;}
+.join-features li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:1px;background:var(--terracotta);}
+.join-card-2 .join-features li::before{background:var(--ancestral-gold);}
+.join-cta{display:inline-block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;padding:13px 26px;border:1px solid var(--brown);color:var(--brown);font-weight:500;transition:all 0.25s;}
+.join-cta:hover{background:var(--brown);color:var(--ancestral-gold);}
+.join-card-2 .join-cta{border-color:var(--ancestral-gold);color:var(--ancestral-gold);}
+.join-card-2 .join-cta:hover{background:var(--ancestral-gold);color:var(--brown);}
+@media (max-width:880px){.join-grid{grid-template-columns:1fr;}}
+
+/* FOUNDER NOTE */
+.founder-note{background:var(--moss-deep);color:var(--cream);}
+.founder-inner{max-width:820px;margin:0 auto;padding:0 32px;text-align:center;}
+.founder-note .section-eyebrow{color:var(--ancestral-gold);opacity:0.85;}
+.founder-portrait{width:100px;height:100px;background:rgba(245,239,226,0.18);border:1px solid rgba(245,239,226,0.35);border-radius:50%;margin:0 auto 32px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;font-size:11px;color:var(--cream);opacity:0.7;text-align:center;}
+.founder-quote{font-family:var(--display);font-style:italic;font-size:clamp(22px,2.6vw,32px);line-height:1.3;color:var(--cream);margin-bottom:28px;font-weight:400;}
+.founder-body{font-size:16px;line-height:1.85;color:var(--cream);margin-bottom:18px;text-align:left;font-weight:300;opacity:0.95;}
+.founder-sig{font-family:var(--display);font-style:italic;font-size:22px;color:var(--ancestral-gold);margin-top:24px;}
+
+/* FINAL CTA */
+.final{position:relative;min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:100px 32px;}
+.final-bg{position:absolute;inset:0;z-index:0;}
+.final-bg img{width:100%;height:100%;object-fit:cover;}
+.final-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(60,38,22,0.4) 0%,rgba(60,38,22,0.75) 100%);}
+.final-content{position:relative;z-index:2;color:var(--cream);max-width:680px;}
+.final h2{font-family:var(--display);font-style:italic;font-size:clamp(32px,4.5vw,52px);line-height:1.1;margin-bottom:24px;color:var(--cream);font-weight:400;}
+.final p{font-size:17px;line-height:1.7;margin-bottom:36px;color:var(--cream);font-weight:300;opacity:0.95;}
+.final .btn-primary{background:var(--ancestral-gold);color:var(--brown);border-color:var(--ancestral-gold);}
+.final .btn-primary:hover{background:var(--terracotta);color:var(--cream);border-color:var(--terracotta);}
+.final-footer-line{margin-top:40px;font-family:var(--display);font-size:14px;letter-spacing:0.32em;text-transform:uppercase;color:var(--ancestral-gold);}
+
+/* FOOTER */
+.footer{background:var(--brown-deep);color:var(--cream);padding:80px 0 40px;}
+.footer-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:48px;margin-bottom:64px;}
+.footer-brand-block{max-width:360px;}
+.footer-wordmark{font-family:var(--display);font-size:28px;letter-spacing:0.08em;color:var(--ancestral-gold);text-transform:uppercase;margin-bottom:18px;display:block;text-decoration:none;}
+.footer-wordmark sup{font-size:11px;vertical-align:super;}
+.footer-tagline{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--cream);opacity:0.85;margin-bottom:28px;line-height:1.5;}
+.footer-col-title{font-family:var(--sans);font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ancestral-gold);margin-bottom:18px;font-weight:500;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:10px;}
+.footer-col a{color:var(--cream);font-size:13px;text-decoration:none;font-weight:300;opacity:0.85;}
+.footer-col a:hover{opacity:1;color:var(--ancestral-gold);}
+.footer-bottom{border-top:1px solid rgba(245,239,226,0.18);padding-top:28px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start;}
+.footer-disclaimer{font-family:var(--serif);font-style:italic;font-size:11px;line-height:1.6;color:var(--cream);opacity:0.55;max-width:700px;}
+.footer-meta{font-family:var(--sans);font-size:11px;letter-spacing:0.08em;color:var(--cream);opacity:0.55;}
+.footer-meta a{color:var(--cream);text-decoration:none;margin-left:16px;}
+.footer-social{display:flex;gap:12px;margin-top:18px;}
+.footer-social a{width:32px;height:32px;border:1px solid rgba(245,239,226,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--cream);text-decoration:none;font-size:11px;}
+.footer-social a:hover{background:var(--ancestral-gold);color:var(--brown);border-color:var(--ancestral-gold);}
+@media (max-width:1000px){.footer-grid{grid-template-columns:1fr 1fr;gap:40px;}}
+@media (max-width:600px){.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;}}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  <strong>Preview Mode</strong>
+  <em>The Cohort — Folicelle community page</em>
+  <span class="pb-divider">·</span>
+  <a href="mailto:dafina@covetandmane.com?subject=Folicelle%20Preview%20Feedback%20%E2%80%94%20Community&body=Page%3A%20Community%0A%0AYour%20feedback%3A%0A">Send feedback</a>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-wordmark">FOLICELLE<sup>™</sup></a>
+    <div class="nav-links">
+      <a href="../product/foundation.html">Shop</a>
+      <a href="../method.html">The Method</a>
+      <a href="index.html">Community</a>
+      <a href="../coming-soon.html">About</a>
+      <a href="../coming-soon.html">Login</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <div class="nav-right">
+      <a href="../product/foundation.html" class="nav-cta">Subscribe</a>
+      <a href="../coming-soon.html" class="nav-cart">0</a>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu-overlay"></div>
+<div class="mobile-menu" role="navigation" aria-label="Mobile menu">
+  <button class="mobile-menu-close" aria-label="Close menu">×</button>
+  <a href="../product/foundation.html">Shop</a>
+  <a href="../method.html">The Method</a>
+  <a href="index.html">Community</a>
+  <a href="../toolkit/">Toolkit</a>
+  <a href="../care-network/">Care Network</a>
+  <a href="../coming-soon.html">About</a>
+  <a href="../coming-soon.html">Login</a>
+  <a href="../product/foundation.html" class="mobile-menu-cta">Subscribe</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-fh">A&nbsp;DEEPER&nbsp;BEAUTY · THE COHORT</div>
+        <h1 class="hero-headline">Real conversations<br>about real journeys.</h1>
+        <p class="hero-sub">
+          The Cohort is Folicelle's private community — organized by hair stage, moderated by people who get it, and warmed by the women who've walked the path before you.
+        </p>
+        <div class="hero-ctas">
+          <a href="../product/foundation.html" class="btn-primary">Subscribe to Foundation</a>
+          <a href="../coming-soon.html" class="btn-secondary">Join as a Member · $19/mo</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-text">
+          <span class="ph-tag">Visual Placeholder</span>
+          <em>Editorial photograph suggesting<br>connection — hands meeting,<br>shared moment, soft natural light.<br>Warm undertones, brand-book mood.<br>NOT stereotypical "women laughing" stock.</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE FOUR COHORTS -->
+<section class="std">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-eyebrow">The Four Paths</div>
+      <h2 class="section-title italic">Find your people, by your stage.</h2>
+      <p class="section-lead">
+        The Cohort is organized by where you are in your hair journey — not by demographics or generic categories. You'll be matched to one path automatically through the Hair Wellness Assessment, and you can opt into a second path if your story spans more than one.
+      </p>
+    </div>
+
+    <div class="cohorts-grid">
+
+      <div class="cohort-card">
+        <div class="cohort-eyebrow">Path 01</div>
+        <h3 class="cohort-name">The Postpartum Path</h3>
+        <div class="cohort-meta">3 to 18 months postpartum · Founding members</div>
+        <p class="cohort-body">
+          For women navigating the shedding, density shifts, and recovery rhythms of life with a new baby. Conversations here center on what's normal, what isn't, and how to nourish yourself when sleep is rationed.
+        </p>
+        <div class="cohort-voices">
+          <div class="cohort-voices-label">Recent threads</div>
+          <p>"How long until the postpartum shedding settles?"</p>
+          <p>"Folicelle alongside breastfeeding — what to know"</p>
+        </div>
+        <a href="../assessment/" class="cohort-cta">Take the Assessment →</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-eyebrow">Path 02</div>
+        <h3 class="cohort-name">The Perimenopause Path</h3>
+        <div class="cohort-meta">42 to 55 · Hormonal shifts · HRT-curious or HRT-active</div>
+        <p class="cohort-body">
+          For women whose hair is changing alongside everything else changing. Texture, density, scalp shifts, the conversations doctors don't have time for. HRT, lifestyle, ritual, what's working and what isn't.
+        </p>
+        <div class="cohort-voices">
+          <div class="cohort-voices-label">Recent threads</div>
+          <p>"Asking my OB about a hormone panel — what to request"</p>
+          <p>"Six months on HRT, here's what changed in my hair"</p>
+        </div>
+        <a href="../assessment/" class="cohort-cta">Take the Assessment →</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-eyebrow">Path 03</div>
+        <h3 class="cohort-name">The Metabolic Path</h3>
+        <div class="cohort-meta">GLP-1 · weight changes · metabolic shifts</div>
+        <p class="cohort-body">
+          For women navigating hair changes alongside rapid weight loss, GLP-1 medications, or other metabolic transitions. Members here often share rituals, doctor conversations, and the long-arc patience that this stage requires.
+        </p>
+        <div class="cohort-voices">
+          <div class="cohort-voices-label">Recent threads</div>
+          <p>"Talking to my prescriber about hair changes — what worked"</p>
+          <p>"Month four on Zepbound, and what my labs showed"</p>
+        </div>
+        <a href="../assessment/" class="cohort-cta">Take the Assessment →</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-eyebrow">Path 04</div>
+        <h3 class="cohort-name">The Foundation Path</h3>
+        <div class="cohort-meta">28 to 55 · General thinning, fine hair, hair quality</div>
+        <p class="cohort-body">
+          For women whose hair concerns don't fit neatly into one of the above categories. Generally lower-volume, more about the daily ritual, ingredient curiosity, and long-arc hair quality than about a specific life-stage shift.
+        </p>
+        <div class="cohort-voices">
+          <div class="cohort-voices-label">Recent threads</div>
+          <p>"He Shou Wu — what I wanted to understand about it"</p>
+          <p>"My morning ritual, three months in"</p>
+        </div>
+        <a href="../assessment/" class="cohort-cta">Take the Assessment →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY VALUE — Moss Green band -->
+<section class="std community-value">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-eyebrow">What happens inside</div>
+      <h2 class="section-title italic">The conversations that don't happen anywhere else.</h2>
+      <p class="section-lead">
+        The Cohort isn't a forum or a Facebook group. It's a curated space designed around the kinds of conversations women's hair wellness deserves and rarely gets.
+      </p>
+    </div>
+
+    <div class="value-grid">
+
+      <div class="value-item">
+        <div class="value-icon">01</div>
+        <h3 class="value-name">Peer support, by stage</h3>
+        <p class="value-body">Members in similar life stages, sharing what's worked. No judgment, no comparison, no medical advice between members — just real reflection on the journey.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="value-icon">02</div>
+        <h3 class="value-name">Safahi office hours</h3>
+        <p class="value-body">Once a month, our Medical Advisor Dr. Miriam Safahi joins each cohort for a Q&amp;A thread. Members submit questions in advance; she responds in writing.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="value-icon">03</div>
+        <h3 class="value-name">Founder presence</h3>
+        <p class="value-body">For the first 90 days of every member's journey, Dafina shows up weekly. Reading threads, occasionally responding, available for questions you wouldn't ask a brand.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="value-icon">04</div>
+        <h3 class="value-name">Photo journey, opt-in</h3>
+        <p class="value-body">Share your day-30, day-60, day-90 photos with your cohort if you want to. Stay private if you don't. The default is private; sharing is always a choice.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MODERATION PROMISE -->
+<section class="std moderation">
+  <div class="container">
+    <div class="moderation-grid">
+      <div>
+        <div class="section-eyebrow">Our promise</div>
+        <h2 class="section-title italic">Curated, not crowded.</h2>
+        <p class="section-lead">
+          The Cohort is moderated, slow, and intentionally small. We'd rather have a thousand engaged members than a hundred thousand passive ones.
+        </p>
+      </div>
+
+      <ul class="moderation-list">
+        <li><strong>Trained moderators in every cohort.</strong>Real humans, not bots, watching for tone, accuracy, and member wellbeing.</li>
+        <li><strong>Medical content reviewed by Dr. Safahi.</strong>Anything medical-adjacent gets routed to her for review before it stays up.</li>
+        <li><strong>No medical advice between members.</strong>Members share experiences, never diagnoses. We redirect medical questions to your healthcare provider.</li>
+        <li><strong>Crisis resources, when needed.</strong>If a thread surfaces something that needs real support — disordered eating, severe distress — moderators respond with appropriate resources, not platitudes.</li>
+        <li><strong>Privacy-first photo sharing.</strong>Photos are private by default. Sharing is opt-in, per-photo. You can revoke access anytime.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO JOIN -->
+<section class="std join">
+  <div class="container">
+    <div class="join-header">
+      <div class="section-eyebrow">Two ways in</div>
+      <h2 class="section-title italic">Choose what fits.</h2>
+      <p class="section-lead">
+        The Cohort is included free with every Folicelle Foundation subscription. If the supplement isn't right for you, the Membership tier exists for community access on its own.
+      </p>
+    </div>
+
+    <div class="join-grid">
+
+      <div class="join-card">
+        <div class="join-eyebrow">Recommended · The Daily Ritual</div>
+        <h3 class="join-name">Folicelle Foundation</h3>
+        <p class="join-price">From $61.30/month effective on the 90-day plan</p>
+        <ul class="join-features">
+          <li>Folicelle Foundation supplement, two gummies daily</li>
+          <li>Full Cohort access, all four paths, lifetime</li>
+          <li>Hair Optimization Method (8-module course)</li>
+          <li>Self-Advocacy Toolkit (Doctor Script Generator, Photo Tracker, more)</li>
+          <li>Care Network discounts on at-home testing</li>
+          <li>90-day satisfaction promise</li>
+        </ul>
+        <a href="../product/foundation.html" class="join-cta">Subscribe →</a>
+      </div>
+
+      <div class="join-card join-card-2">
+        <div class="join-eyebrow">Community · Without the Supplement</div>
+        <h3 class="join-name">Folicelle Membership</h3>
+        <p class="join-price">$19/month · or $179/year (22% off)</p>
+        <ul class="join-features">
+          <li>Full Cohort access, all four paths</li>
+          <li>The Hair Optimization Method (course)</li>
+          <li>Care Network discounts</li>
+          <li>Monthly Safahi office hours</li>
+          <li>Bonus quarterly course modules</li>
+          <li>Cancel anytime, keep lifetime course access</li>
+        </ul>
+        <a href="../coming-soon.html" class="join-cta">Become a Member →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER NOTE about community -->
+<section class="std founder-note">
+  <div class="founder-inner">
+    <div class="section-eyebrow">A note from our founder</div>
+    <div class="founder-portrait">Dafina<br>portrait<br>placeholder</div>
+    <p class="founder-quote">"Hair changes are isolating. The Cohort is the antidote."</p>
+    <p class="founder-body">
+      I started Folicelle because the conversations women need about their hair don't happen in a fifteen-minute appointment. They also don't happen on Reddit or Instagram or in our group chats — at least not the kind I needed.
+    </p>
+    <p class="founder-body">
+      What I wanted was a small, smart, curated space where women three months ahead of me could tell me what worked. Where Dr. Safahi could weigh in monthly without it being a paid consultation. Where the photos I shared stayed private unless I chose otherwise. That's what The Cohort is.
+    </p>
+    <div class="founder-sig">— Dafina</div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="final-bg"><img src="../images/leaves.webp" alt=""></div>
+  <div class="final-content">
+    <h2>The journey is shorter,<br>walked with people on the same path.</h2>
+    <p>Take the 60-second Hair Wellness Assessment. We'll route you to the cohort that fits.</p>
+    <a href="../assessment/" class="btn-primary">Take the Assessment</a>
+    <div class="final-footer-line">A&nbsp;Deeper&nbsp;Beauty</div>
+  </div>
+</section>
+
+<div class="send-feedback-block">
+  Reviewing this preview? <a href="mailto:dafina@covetandmane.com?subject=Folicelle%20Preview%20Feedback%20%E2%80%94%20Community&body=Page%3A%20Community%0A%0AYour%20feedback%3A%0A">Send feedback to Dafina</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-block">
+        <a href="../index.html" class="footer-wordmark">FOLICELLE<sup>™</sup></a>
+        <p class="footer-tagline">A dermatologist-reviewed daily ritual for hair wellness. Built around a platform — not just a supplement.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="#" aria-label="Pinterest">PIN</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Shop</div>
+        <ul>
+          <li><a href="../product/foundation.html">Folicelle Foundation</a></li>
+          <li><a href="../coming-soon.html">Weekly Ritual Packets</a></li>
+          <li><a href="../method.html">The Method</a></li>
+          <li><a href="../coming-soon.html">Membership</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Platform</div>
+        <ul>
+          <li><a href="../method.html">The Method</a></li>
+          <li><a href="index.html">The Cohort</a></li>
+          <li><a href="../toolkit/">Self-Advocacy Toolkit</a></li>
+          <li><a href="../care-network/">Care Network</a></li>
+          <li><a href="../assessment/">Take the Assessment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">About</div>
+        <ul>
+          <li><a href="../coming-soon.html">Our Story</a></li>
+          <li><a href="../coming-soon.html">Medical Advisor</a></li>
+          <li><a href="../coming-soon.html">Ingredients</a></li>
+          <li><a href="../coming-soon.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Support</div>
+        <ul>
+          <li><a href="../coming-soon.html">Contact Us</a></li>
+          <li><a href="../coming-soon.html">FAQ</a></li>
+          <li><a href="../coming-soon.html">Shipping &amp; Returns</a></li>
+          <li><a href="../coming-soon.html">90-day Promise</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">
+        These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. The Cohort is a community space and is not a substitute for medical advice. Always consult your healthcare provider for medical questions.
+      </p>
+      <div>
+        <div class="footer-meta">© 2026 Folicelle, a Covet Brands Group company.</div>
+        <div class="footer-meta" style="margin-top:8px;">
+          <a href="../coming-soon.html">Privacy</a><a href="../coming-soon.html">Terms</a><a href="../coming-soon.html">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/prototype.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folicelle — Self-Advocacy Toolkit</title>
+<meta name="description" content="The Self-Advocacy Toolkit — Folicelle's framework for women navigating hair wellness. Doctor Script Generator, Photo Tracker, Lab Results, more.">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/prototype.css">
+<style>
+:root {
+  --brown:#563622; --terracotta:#AF7153; --ancestral-gold:#DECCA5;
+  --moss-green:#9A9762; --moss-deep:#7E7B4E; --cream:#F5EFE2;
+  --cream-soft:#EFE8D8; --gold-light:#ECDFC0; --brown-deep:#3C2616;
+  --line:rgba(86,54,34,0.18);
+  --display:'DM Serif Display','Canela',Georgia,serif;
+  --serif:'Cormorant Garamond','Canela',Georgia,serif;
+  --sans:'Inter','Apercu Pro',-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.65;color:var(--brown);background:var(--cream);-webkit-font-smoothing:antialiased;}
+img{max-width:100%;height:auto;display:block;}
+.container{max-width:1280px;margin:0 auto;padding:0 32px;}
+.container-narrow{max-width:920px;margin:0 auto;padding:0 32px;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:var(--cream);border-bottom:1px solid var(--line);padding:18px 0;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 32px;}
+.nav-wordmark{font-family:var(--display);font-size:22px;letter-spacing:0.08em;color:var(--ancestral-gold);text-transform:uppercase;text-decoration:none;}
+.nav-wordmark sup{font-size:9px;vertical-align:super;}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{color:var(--brown);text-decoration:none;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;}
+.nav-links a:hover{color:var(--terracotta);}
+.nav-right{display:flex;gap:18px;align-items:center;}
+.nav-cta{background:var(--brown);color:var(--ancestral-gold);padding:10px 22px;border-radius:2px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;}
+.nav-cta:hover{background:var(--terracotta);}
+.nav-cart{width:32px;height:32px;border:1px solid var(--brown);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--brown);text-decoration:none;}
+@media (max-width:880px){.nav-links{display:none;}}
+
+/* BUTTONS */
+.btn-primary{background:var(--brown);color:var(--ancestral-gold);padding:16px 36px;border-radius:2px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-weight:500;transition:all 0.25s;display:inline-block;border:1px solid var(--brown);}
+.btn-primary:hover{background:var(--terracotta);border-color:var(--terracotta);}
+.btn-secondary{background:transparent;color:var(--brown);padding:16px 30px;border-radius:2px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-weight:500;border:1px solid var(--brown);transition:all 0.25s;display:inline-block;}
+.btn-secondary:hover{background:var(--brown);color:var(--ancestral-gold);}
+
+/* HERO — clinical/editorial flat-lay treatment */
+.hero{position:relative;background:var(--cream-soft);padding:100px 0 110px;overflow:hidden;}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;}
+.hero-fh{font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:0.42em;text-transform:uppercase;color:var(--terracotta);margin-bottom:32px;}
+.hero-headline{font-family:var(--display);font-style:italic;font-size:clamp(38px,5vw,64px);line-height:1.04;color:var(--brown);margin-bottom:28px;font-weight:400;}
+.hero-sub{font-size:17px;line-height:1.7;color:var(--brown);margin-bottom:36px;max-width:540px;font-weight:300;}
+.hero-ctas{display:flex;gap:18px;align-items:center;flex-wrap:wrap;}
+.hero-visual{aspect-ratio:4/5;background:linear-gradient(135deg,var(--gold-light),var(--cream));position:relative;border-radius:2px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;border:1px solid var(--line);}
+.hero-visual::before{content:"";position:absolute;inset:24px;border:1px solid rgba(86,54,34,0.15);}
+.hero-visual-text{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--brown);opacity:0.6;letter-spacing:0.04em;}
+.hero-visual-text span.ph-tag{display:block;font-family:var(--sans);font-style:normal;font-size:10px;letter-spacing:0.32em;text-transform:uppercase;margin-bottom:14px;opacity:0.85;}
+@media (max-width:920px){.hero{padding:60px 0 70px;}.hero-grid{grid-template-columns:1fr;gap:40px;}}
+
+/* SECTION SHARED */
+section.std{padding:110px 0;position:relative;}
+section.std.tight{padding:80px 0;}
+section.std.alt{background:var(--cream-soft);}
+.section-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--terracotta);font-weight:500;margin-bottom:24px;}
+.section-title{font-family:var(--display);font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;color:var(--brown);margin-bottom:28px;}
+.section-title.italic{font-style:italic;}
+.section-lead{font-size:18px;line-height:1.7;color:var(--brown);font-weight:300;max-width:680px;margin-bottom:48px;}
+.section-header-center{text-align:center;margin-bottom:64px;}
+.section-header-center .section-lead{margin:0 auto;}
+
+/* SIX COMPONENTS GRID */
+.components-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.component-card{background:var(--cream);padding:40px 32px 38px;}
+.component-letter{font-family:var(--display);font-size:14px;color:var(--terracotta);letter-spacing:0.32em;margin-bottom:14px;font-weight:400;}
+.component-name{font-family:var(--display);font-size:22px;line-height:1.2;color:var(--brown);margin-bottom:14px;font-weight:400;}
+.component-body{font-size:14px;line-height:1.7;color:var(--brown);font-weight:300;}
+@media (max-width:980px){.components-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:600px){.components-grid{grid-template-columns:1fr;}}
+
+/* WHY THE TOOLKIT EXISTS — sharpest brand voice section */
+.why{background:var(--brown);color:var(--ancestral-gold);}
+.why .section-eyebrow{color:var(--ancestral-gold);opacity:0.85;}
+.why-inner{max-width:820px;margin:0 auto;padding:0 32px;}
+.why-headline{font-family:var(--display);font-style:italic;font-size:clamp(34px,4.2vw,56px);line-height:1.05;color:var(--ancestral-gold);margin-bottom:48px;font-weight:400;}
+.why-body{font-size:17px;line-height:1.85;color:var(--ancestral-gold);opacity:0.95;margin-bottom:24px;font-weight:300;}
+.why-body strong{font-weight:500;font-style:normal;color:var(--cream);}
+.why-pull-quote{font-family:var(--display);font-style:italic;font-size:24px;line-height:1.4;color:var(--cream);border-left:2px solid var(--terracotta);padding-left:24px;margin:40px 0;}
+.why-sig{font-family:var(--display);font-style:italic;font-size:22px;color:var(--terracotta);margin-top:40px;}
+
+/* SAMPLE DOCTOR SCRIPT */
+.sample{background:var(--cream-soft);}
+.sample-header{text-align:center;margin-bottom:64px;}
+.sample-header .section-lead{margin:0 auto;}
+.sample-frame{
+  max-width:780px;margin:0 auto;
+  background:#FFFCF6;
+  border:1px solid var(--line);
+  border-radius:2px;
+  padding:48px 56px;
+  position:relative;
+  box-shadow:0 4px 32px rgba(60,38,22,0.08);
+}
+.sample-frame::before{
+  content:"SAMPLE";
+  position:absolute;
+  top:24px;right:24px;
+  font-family:var(--sans);font-size:10px;letter-spacing:0.32em;
+  background:var(--terracotta);color:var(--cream);
+  padding:5px 14px;border-radius:2px;font-weight:600;
+}
+.sample-mark{
+  position:absolute;
+  bottom:24px;right:32px;
+  font-family:var(--display);font-size:14px;color:var(--ancestral-gold);
+  letter-spacing:0.08em;text-transform:uppercase;opacity:0.6;
+}
+.sample-h1{font-family:var(--display);font-size:24px;color:var(--brown);margin-bottom:6px;font-weight:400;}
+.sample-h2{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--brown);opacity:0.7;margin-bottom:32px;border-bottom:1px solid var(--line);padding-bottom:18px;}
+.sample-section{margin-bottom:28px;}
+.sample-label{font-family:var(--sans);font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--terracotta);margin-bottom:10px;font-weight:500;}
+.sample-text{font-size:14px;line-height:1.7;color:var(--brown);}
+.sample-list{list-style:none;}
+.sample-list li{font-size:14px;line-height:1.6;color:var(--brown);padding:10px 0;border-bottom:1px dashed rgba(86,54,34,0.15);display:flex;justify-content:space-between;gap:16px;}
+.sample-list li:last-child{border-bottom:none;}
+.sample-list .lab-name{font-weight:500;}
+.sample-list .lab-just{font-style:italic;font-family:var(--serif);opacity:0.75;}
+.sample-notes{margin-top:24px;height:80px;border-bottom:1px dashed rgba(86,54,34,0.3);}
+@media (max-width:720px){.sample-frame{padding:32px 28px;}.sample-list li{flex-direction:column;gap:4px;}.sample-list .lab-just{font-size:12px;}}
+
+/* HOW IT WORKS — 3 steps */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.how-step{text-align:left;padding:36px 32px;background:var(--cream);border:1px solid var(--line);border-radius:2px;}
+.how-num{font-family:var(--display);font-size:48px;line-height:1;color:var(--terracotta);margin-bottom:18px;font-weight:400;}
+.how-name{font-family:var(--display);font-size:20px;color:var(--brown);margin-bottom:10px;font-weight:400;line-height:1.2;}
+.how-body{font-size:14px;line-height:1.65;color:var(--brown);font-weight:300;}
+@media (max-width:880px){.how-grid{grid-template-columns:1fr;}}
+
+/* PRIVACY / DISCLAIMER */
+.privacy{background:var(--moss-green);color:var(--cream);}
+.privacy .section-eyebrow{color:var(--ancestral-gold);}
+.privacy .section-title{color:var(--cream);}
+.privacy-inner{max-width:820px;margin:0 auto;padding:0 32px;}
+.privacy-list{list-style:none;}
+.privacy-list li{padding:22px 0;border-top:1px solid rgba(245,239,226,0.25);position:relative;padding-left:36px;font-size:15px;line-height:1.7;color:var(--cream);font-weight:300;opacity:0.95;}
+.privacy-list li:first-child{border-top:none;}
+.privacy-list li::before{content:"⌖";position:absolute;left:0;top:22px;color:var(--ancestral-gold);font-family:var(--display);font-size:18px;}
+.privacy-list li strong{font-weight:500;font-family:var(--sans);font-size:13px;letter-spacing:0.08em;display:block;margin-bottom:6px;color:var(--ancestral-gold);text-transform:uppercase;}
+.privacy-disclaimer{margin-top:36px;padding:20px 24px;background:rgba(60,38,22,0.18);border:1px solid rgba(245,239,226,0.18);border-radius:2px;font-family:var(--serif);font-style:italic;font-size:14px;line-height:1.65;color:var(--cream);opacity:0.9;}
+
+/* HOW TO ACCESS — 3 cards */
+.access{background:var(--cream);}
+.access-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.access-card{background:var(--cream);padding:48px 40px 44px;display:flex;flex-direction:column;}
+.access-card.featured{background:var(--brown);color:var(--ancestral-gold);}
+.access-card.featured .access-eyebrow,
+.access-card.featured .access-name,
+.access-card.featured .access-price,
+.access-card.featured .access-features li{color:var(--ancestral-gold);}
+.access-card.featured .access-features{border-color:rgba(222,204,165,0.3);}
+.access-card.featured .access-features li::before{background:var(--ancestral-gold);}
+.access-card.featured .access-cta{border-color:var(--ancestral-gold);color:var(--ancestral-gold);}
+.access-card.featured .access-cta:hover{background:var(--ancestral-gold);color:var(--brown);}
+.access-card.unavailable{opacity:0.65;}
+.access-card.unavailable .access-cta{pointer-events:none;cursor:not-allowed;opacity:0.6;}
+.access-eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:var(--terracotta);margin-bottom:14px;font-weight:500;}
+.access-name{font-family:var(--display);font-size:24px;line-height:1.2;color:var(--brown);margin-bottom:6px;font-weight:400;}
+.access-price{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--brown);opacity:0.85;margin-bottom:22px;}
+.access-features{list-style:none;padding-top:22px;border-top:1px solid var(--line);margin-bottom:24px;}
+.access-features li{position:relative;padding-left:18px;margin-bottom:10px;font-size:13px;line-height:1.55;color:var(--brown);font-weight:300;}
+.access-features li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:1px;background:var(--terracotta);}
+.access-features li.x{opacity:0.5;text-decoration:line-through;}
+.access-cta{display:inline-block;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;padding:11px 22px;border:1px solid var(--brown);color:var(--brown);font-weight:500;align-self:flex-start;transition:all 0.25s;margin-top:auto;}
+.access-cta:hover{background:var(--brown);color:var(--ancestral-gold);}
+.access-tag{display:inline-block;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;background:var(--terracotta);color:var(--cream);padding:3px 10px;margin-bottom:12px;font-weight:600;border-radius:2px;}
+@media (max-width:980px){.access-grid{grid-template-columns:1fr;}}
+
+/* FINAL CTA */
+.final{position:relative;min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:100px 32px;}
+.final-bg{position:absolute;inset:0;z-index:0;}
+.final-bg img{width:100%;height:100%;object-fit:cover;}
+.final-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(60,38,22,0.4) 0%,rgba(60,38,22,0.78) 100%);}
+.final-content{position:relative;z-index:2;color:var(--cream);max-width:680px;}
+.final h2{font-family:var(--display);font-style:italic;font-size:clamp(32px,4.5vw,52px);line-height:1.1;margin-bottom:24px;color:var(--cream);font-weight:400;}
+.final p{font-size:17px;line-height:1.7;margin-bottom:36px;color:var(--cream);font-weight:300;opacity:0.95;}
+.final .btn-primary{background:var(--ancestral-gold);color:var(--brown);border-color:var(--ancestral-gold);}
+.final .btn-primary:hover{background:var(--terracotta);color:var(--cream);border-color:var(--terracotta);}
+.final-footer-line{margin-top:40px;font-family:var(--display);font-size:14px;letter-spacing:0.32em;text-transform:uppercase;color:var(--ancestral-gold);}
+
+/* FOOTER */
+.footer{background:var(--brown-deep);color:var(--cream);padding:80px 0 40px;}
+.footer-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:48px;margin-bottom:64px;}
+.footer-brand-block{max-width:360px;}
+.footer-wordmark{font-family:var(--display);font-size:28px;letter-spacing:0.08em;color:var(--ancestral-gold);text-transform:uppercase;margin-bottom:18px;display:block;text-decoration:none;}
+.footer-wordmark sup{font-size:11px;vertical-align:super;}
+.footer-tagline{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--cream);opacity:0.85;margin-bottom:28px;line-height:1.5;}
+.footer-col-title{font-family:var(--sans);font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ancestral-gold);margin-bottom:18px;font-weight:500;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:10px;}
+.footer-col a{color:var(--cream);font-size:13px;text-decoration:none;font-weight:300;opacity:0.85;}
+.footer-col a:hover{opacity:1;color:var(--ancestral-gold);}
+.footer-bottom{border-top:1px solid rgba(245,239,226,0.18);padding-top:28px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start;}
+.footer-disclaimer{font-family:var(--serif);font-style:italic;font-size:11px;line-height:1.6;color:var(--cream);opacity:0.55;max-width:700px;}
+.footer-meta{font-family:var(--sans);font-size:11px;letter-spacing:0.08em;color:var(--cream);opacity:0.55;}
+.footer-meta a{color:var(--cream);text-decoration:none;margin-left:16px;}
+.footer-social{display:flex;gap:12px;margin-top:18px;}
+.footer-social a{width:32px;height:32px;border:1px solid rgba(245,239,226,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--cream);text-decoration:none;font-size:11px;}
+.footer-social a:hover{background:var(--ancestral-gold);color:var(--brown);border-color:var(--ancestral-gold);}
+@media (max-width:1000px){.footer-grid{grid-template-columns:1fr 1fr;gap:40px;}}
+@media (max-width:600px){.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;}}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  <strong>Preview Mode</strong>
+  <em>Self-Advocacy Toolkit</em>
+  <span class="pb-divider">·</span>
+  <a href="mailto:dafina@covetandmane.com?subject=Folicelle%20Preview%20Feedback%20%E2%80%94%20Toolkit&body=Page%3A%20Toolkit%0A%0AYour%20feedback%3A%0A">Send feedback</a>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-wordmark">FOLICELLE<sup>™</sup></a>
+    <div class="nav-links">
+      <a href="../product/foundation.html">Shop</a>
+      <a href="../method.html">The Method</a>
+      <a href="../community/">Community</a>
+      <a href="../coming-soon.html">About</a>
+      <a href="../coming-soon.html">Login</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <div class="nav-right">
+      <a href="../product/foundation.html" class="nav-cta">Subscribe</a>
+      <a href="../coming-soon.html" class="nav-cart">0</a>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu-overlay"></div>
+<div class="mobile-menu" role="navigation" aria-label="Mobile menu">
+  <button class="mobile-menu-close" aria-label="Close menu">×</button>
+  <a href="../product/foundation.html">Shop</a>
+  <a href="../method.html">The Method</a>
+  <a href="../community/">Community</a>
+  <a href="index.html">Toolkit</a>
+  <a href="../care-network/">Care Network</a>
+  <a href="../coming-soon.html">About</a>
+  <a href="../coming-soon.html">Login</a>
+  <a href="../product/foundation.html" class="mobile-menu-cta">Subscribe</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-fh">A&nbsp;DEEPER&nbsp;BEAUTY · THE TOOLKIT</div>
+        <h1 class="hero-headline">The framework hair wellness deserves.</h1>
+        <p class="hero-sub">
+          The Self-Advocacy Toolkit is the missing infrastructure women need to navigate hair changes with confidence — a doctor script generator, a photo tracker, a lab results reader, and a personalized protocol that updates as you learn.
+        </p>
+        <div class="hero-ctas">
+          <a href="../product/foundation.html" class="btn-primary">Subscribe to Foundation</a>
+          <a href="../method.html" class="btn-secondary">Get the Method · $79</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-text">
+          <span class="ph-tag">Visual Placeholder</span>
+          <em>Editorial flat-lay —<br>journal, lab printout, ritual objects.<br>Cream-on-brown ground, soft natural light.<br>Brand-book aesthetic, clinical-warm tone.</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE SIX COMPONENTS -->
+<section class="std">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-eyebrow">Six tools, one system</div>
+      <h2 class="section-title italic">What's in the Toolkit.</h2>
+      <p class="section-lead">
+        Each tool exists because women asked us for it. The doctor script came from an SP customer who said her dermatology appointment lasted seven minutes. The photo tracker came from members tired of trying to remember if last month's part looked the same. None of these are diagnostic tools — they are advocacy tools.
+      </p>
+    </div>
+
+    <div class="components-grid">
+      <div class="component-card">
+        <div class="component-letter">— A —</div>
+        <h3 class="component-name">The Hair Wellness Assessment</h3>
+        <p class="component-body">A 60–90 second quiz that maps your likely contributors and recommends a starting path forward. Available publicly as our cold-traffic entry point; runs deeper as a baseline intake inside your account.</p>
+      </div>
+      <div class="component-card">
+        <div class="component-letter">— B —</div>
+        <h3 class="component-name">The Journey Dashboard</h3>
+        <p class="component-body">Track your 90-day cycle. See where you are, mark your milestones, take photos at the right moments. The ritual has rhythm; the dashboard helps you find it.</p>
+      </div>
+      <div class="component-card">
+        <div class="component-letter">— C —</div>
+        <h3 class="component-name">The Photo Tracker</h3>
+        <p class="component-body">Private photo logging at baseline, day 30, day 60, day 90. Three angles, side-by-side comparison. Stays private by default. Share with your cohort if and when you choose.</p>
+      </div>
+      <div class="component-card">
+        <div class="component-letter">— D —</div>
+        <h3 class="component-name">The Lab Results Module</h3>
+        <p class="component-body">Enter your results from bloodwork. See out-of-range values flagged in plain language. Track trends over time. Educational, never diagnostic. Always pair with your physician's interpretation.</p>
+      </div>
+      <div class="component-card">
+        <div class="component-letter">— E —</div>
+        <h3 class="component-name">The Doctor Script Generator</h3>
+        <p class="component-body">Print a customized request framework to take to your GP or dermatologist. Specific labs to discuss, with brief plain-language context. Built to make a fifteen-minute appointment more useful, not to bypass it.</p>
+      </div>
+      <div class="component-card">
+        <div class="component-letter">— F —</div>
+        <h3 class="component-name">My Protocol</h3>
+        <p class="component-body">Personalized recommendations that update as you learn more about your body. Folicelle Foundation fits where it makes sense; you decide the rest. Updates as you add lab results, take photos, share feedback.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THE TOOLKIT EXISTS — sharpest founder POV -->
+<section class="std why">
+  <div class="why-inner">
+    <div class="section-eyebrow">Why this exists</div>
+    <h2 class="why-headline">Hair wellness sits in the gap the medical system doesn't fill.</h2>
+
+    <p class="why-body">
+      Hair changes are a downstream signal of upstream health. They show up first when hormones shift, when stress accumulates, when nutrition slips, when sleep breaks. Read them carefully and you learn something about your body before any other system tells you. Read them through the lens of "just a cosmetic concern" and you miss the signal entirely.
+    </p>
+
+    <p class="why-body">
+      <strong>The American medical system isn't structured to read those signals.</strong> Dermatologists are trained for the scalp surface and trained to bill by procedure. Hair loss is low-margin, time-intensive, and rarely has a clean answer — so most appointments end with Rogaine, a referral that goes nowhere, and "it's probably stress."
+    </p>
+
+    <p class="why-body">
+      GPs don't run hormone panels or full thyroid panels proactively. They run them when you ask. Most women don't know which to ask for. So years go by while iron drops, ferritin sits at the bottom of the normal range, T3 quietly underconverts, and hair quality changes slowly enough that no individual appointment catches it.
+    </p>
+
+    <div class="why-pull-quote">
+      "The Toolkit is what I wished I'd had when I was bouncing between five specialists trying to translate between them. It's the framework that didn't exist."
+    </div>
+
+    <p class="why-body">
+      Nutritionists could help, but they're rarely covered by insurance and rarely credentialed in hair-specific protocols. Functional medicine practitioners cost $400 an out-of-pocket consult. Online forums are well-meaning but unmoderated. So women navigate this gap alone, with whatever they pick up at 2 a.m. — and they pay for it in time, money, and the slow erosion of trusting their own body's signals.
+    </p>
+
+    <p class="why-body">
+      <strong>Folicelle exists because of that gap.</strong> The Toolkit isn't medical advice. It's advocacy infrastructure — a framework that helps you walk into any office with the right questions, the right labs, and the right language to be heard. It doesn't replace your doctor. It makes the conversation with your doctor faster, kinder, and more useful.
+    </p>
+
+    <p class="why-body">
+      I built the Method, the Cohort, and this Toolkit because they're what I needed when my own hair began to change. The medical system didn't catch up to me. I built the catch-up.
+    </p>
+
+    <div class="why-sig">— Dafina</div>
+  </div>
+</section>
+
+<!-- SAMPLE DOCTOR SCRIPT -->
+<section class="std sample">
+  <div class="container">
+    <div class="sample-header">
+      <div class="section-eyebrow">The Doctor Script Generator</div>
+      <h2 class="section-title italic">A sample of what you'll bring to your appointment.</h2>
+      <p class="section-lead">
+        Below is the kind of one-page script the Toolkit generates. Customized to your assessment answers. Printable. Yours to mark up before you walk in. Actual content varies based on what you tell us about your situation.
+      </p>
+    </div>
+
+    <div class="sample-frame">
+      <h3 class="sample-h1">Hair Wellness Discussion · Patient Request Framework</h3>
+      <div class="sample-h2">Generated by the Folicelle Self-Advocacy Toolkit · For your appointment with your healthcare provider</div>
+
+      <div class="sample-section">
+        <div class="sample-label">Patient context</div>
+        <p class="sample-text">
+          I've been noticing changes in my hair over the past several months — increased shedding, density change at my crown and part, slower regrowth than I remember. I'd like to use this appointment to discuss whether bloodwork might help us understand what's contributing.
+        </p>
+      </div>
+
+      <div class="sample-section">
+        <div class="sample-label">Labs I'd like to discuss</div>
+        <ul class="sample-list">
+          <li><span class="lab-name">Ferritin</span><span class="lab-just">A common contributor in women with hair changes; standard "normal" ranges may be insufficient for hair quality.</span></li>
+          <li><span class="lab-name">Full thyroid panel (TSH, free T3, free T4)</span><span class="lab-just">TSH alone often misses subtle hypothyroid patterns.</span></li>
+          <li><span class="lab-name">Vitamin D, 25-hydroxy</span><span class="lab-just">Low D is common and correlates with hair quality.</span></li>
+          <li><span class="lab-name">Vitamin B-12 and folate</span><span class="lab-just">Both relevant to follicle activity; methylation issues common.</span></li>
+          <li><span class="lab-name">Sex hormone panel (if relevant to my stage)</span><span class="lab-just">Particularly if I'm peri-menopausal, postpartum, or post-pill.</span></li>
+        </ul>
+      </div>
+
+      <div class="sample-section">
+        <div class="sample-label">Notes from this appointment</div>
+        <div class="sample-notes"></div>
+      </div>
+
+      <p class="sample-text" style="margin-top:32px;font-style:italic;font-family:var(--serif);font-size:13px;opacity:0.7;">
+        This script is educational and intended to support a conversation with your healthcare provider. It is not a diagnosis, prescription, or recommendation for any specific lab. Your provider will determine which tests are appropriate based on your individual circumstances.
+      </p>
+
+      <div class="sample-mark">FOLICELLE</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="std alt">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-eyebrow">How the Toolkit works with your doctor</div>
+      <h2 class="section-title italic">An ally, not an alternative.</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-num">01</div>
+        <h3 class="how-name">Take the assessment</h3>
+        <p class="how-body">Answer 60–90 seconds of questions. The Toolkit generates personalized lab recommendations based on your stage and what you've told us.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">02</div>
+        <h3 class="how-name">Print the doctor script</h3>
+        <p class="how-body">One page, ready to bring to your GP or dermatologist. Specific labs to discuss, plain-language context. A request framework, not a demand.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">03</div>
+        <h3 class="how-name">Enter your results</h3>
+        <p class="how-body">When labs come back, enter values into the Toolkit. See out-of-range items flagged in plain language. Pair with your provider's interpretation.</p>
+      </div>
+    </div>
+    <p style="text-align:center;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--brown);opacity:0.85;max-width:680px;margin:48px auto 0;">
+      The Toolkit doesn't replace your doctor. It makes the conversation with your doctor faster, kinder, and more useful.
+    </p>
+  </div>
+</section>
+
+<!-- PRIVACY & DISCLAIMERS -->
+<section class="std privacy">
+  <div class="privacy-inner">
+    <div class="section-eyebrow">Privacy &amp; medical disclaimers</div>
+    <h2 class="section-title italic">What you put in stays yours.</h2>
+
+    <ul class="privacy-list">
+      <li><strong>Your data is private</strong>Photos, lab values, and assessment answers are stored encrypted at rest. We never share with third parties without your explicit, per-share opt-in.</li>
+      <li><strong>The Toolkit is educational</strong>Not diagnostic. The Lab Results Module explains values in plain language; it does not interpret or diagnose. Always pair with your provider's interpretation.</li>
+      <li><strong>The Doctor Script is a request framework</strong>It suggests labs to discuss with your provider. It is not a prescription, a recommendation, or a guarantee that any specific test is appropriate for you. Your provider decides.</li>
+      <li><strong>Photo sharing is opt-in, per photo</strong>Default-private. You choose whether to share with your cohort, when, and which images. Revoke access anytime.</li>
+      <li><strong>HIPAA-equivalent privacy practices</strong>Even though we're not technically a covered entity, we hold ourselves to the standards of one. Your data, your control.</li>
+    </ul>
+
+    <div class="privacy-disclaimer">
+      <strong style="font-style:normal;">Important:</strong> The Self-Advocacy Toolkit is educational and is not intended to diagnose, treat, cure, or prevent any condition or disease. Always consult your healthcare provider for medical decisions. If you are experiencing severe or sudden hair loss, scalp pain, or related symptoms, contact your provider directly.
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO ACCESS — 3 cards -->
+<section class="std access">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-eyebrow">Three ways to access the Toolkit</div>
+      <h2 class="section-title italic">It comes with the ritual or the education.</h2>
+    </div>
+    <div class="access-grid">
+
+      <div class="access-card featured">
+        <div class="access-tag">Most Chosen</div>
+        <div class="access-eyebrow">Subscribe</div>
+        <h3 class="access-name">Folicelle Foundation</h3>
+        <p class="access-price">From $61.30/month effective on 90-day plan</p>
+        <ul class="access-features">
+          <li>Full Toolkit · all 6 components</li>
+          <li>Hair Optimization Method (8-module course)</li>
+          <li>The Cohort community</li>
+          <li>Care Network discounts</li>
+          <li>Folicelle Foundation supplement</li>
+        </ul>
+        <a href="../product/foundation.html" class="access-cta">Subscribe →</a>
+      </div>
+
+      <div class="access-card">
+        <div class="access-eyebrow">Standalone</div>
+        <h3 class="access-name">The Hair Optimization Method</h3>
+        <p class="access-price">$79 one-time · lifetime access</p>
+        <ul class="access-features">
+          <li>Full Toolkit · all 6 components</li>
+          <li>Hair Optimization Method (8-module course)</li>
+          <li>30-day Cohort trial</li>
+          <li>Care Network awareness only</li>
+          <li class="x">Folicelle Foundation supplement</li>
+        </ul>
+        <a href="../method.html" class="access-cta">Get the Method →</a>
+      </div>
+
+      <div class="access-card unavailable">
+        <div class="access-eyebrow">Membership</div>
+        <h3 class="access-name">Folicelle Membership</h3>
+        <p class="access-price">$19/month or $179/year</p>
+        <ul class="access-features">
+          <li>The Cohort community</li>
+          <li>The Hair Optimization Method (course)</li>
+          <li>Care Network discounts</li>
+          <li class="x">Self-Advocacy Toolkit</li>
+          <li class="x">Folicelle Foundation supplement</li>
+        </ul>
+        <a href="#" class="access-cta">Membership · No Toolkit</a>
+      </div>
+
+    </div>
+    <p style="text-align:center;font-family:var(--serif);font-style:italic;font-size:14px;color:var(--brown);opacity:0.75;max-width:680px;margin:36px auto 0;">
+      The Toolkit is intentionally not bundled with the $19/month Membership. It's a heavier feature with privacy and personalization implications, and it deserves either the daily ritual or the full course commitment around it.
+    </p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="final-bg"><img src="../images/leaves.webp" alt=""></div>
+  <div class="final-content">
+    <h2>Walk into your next appointment ready.</h2>
+    <p>Take the Hair Wellness Assessment. The Toolkit begins with what you tell us about your story.</p>
+    <a href="../assessment/" class="btn-primary">Take the Assessment</a>
+    <div class="final-footer-line">A&nbsp;Deeper&nbsp;Beauty</div>
+  </div>
+</section>
+
+<div class="send-feedback-block">
+  Reviewing this preview? <a href="mailto:dafina@covetandmane.com?subject=Folicelle%20Preview%20Feedback%20%E2%80%94%20Toolkit&body=Page%3A%20Toolkit%0A%0AYour%20feedback%3A%0A">Send feedback to Dafina</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-block">
+        <a href="../index.html" class="footer-wordmark">FOLICELLE<sup>™</sup></a>
+        <p class="footer-tagline">A dermatologist-reviewed daily ritual for hair wellness. Built around a platform — not just a supplement.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="#" aria-label="Pinterest">PIN</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Shop</div>
+        <ul>
+          <li><a href="../product/foundation.html">Folicelle Foundation</a></li>
+          <li><a href="../coming-soon.html">Weekly Ritual Packets</a></li>
+          <li><a href="../method.html">The Method</a></li>
+          <li><a href="../coming-soon.html">Membership</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Platform</div>
+        <ul>
+          <li><a href="../method.html">The Method</a></li>
+          <li><a href="../community/">The Cohort</a></li>
+          <li><a href="index.html">Self-Advocacy Toolkit</a></li>
+          <li><a href="../care-network/">Care Network</a></li>
+          <li><a href="../assessment/">Take the Assessment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">About</div>
+        <ul>
+          <li><a href="../coming-soon.html">Our Story</a></li>
+          <li><a href="../coming-soon.html">Medical Advisor</a></li>
+          <li><a href="../coming-soon.html">Ingredients</a></li>
+          <li><a href="../coming-soon.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Support</div>
+        <ul>
+          <li><a href="../coming-soon.html">Contact Us</a></li>
+          <li><a href="../coming-soon.html">FAQ</a></li>
+          <li><a href="../coming-soon.html">Shipping &amp; Returns</a></li>
+          <li><a href="../coming-soon.html">90-day Promise</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">
+        These statements have not been evaluated by the Food and Drug Administration. The Self-Advocacy Toolkit is educational and is not intended to diagnose, treat, cure, or prevent any condition or disease. Always consult your healthcare provider for medical decisions.
+      </p>
+      <div>
+        <div class="footer-meta">© 2026 Folicelle, a Covet Brands Group company.</div>
+        <div class="footer-meta" style="margin-top:8px;">
+          <a href="../coming-soon.html">Privacy</a><a href="../coming-soon.html">Terms</a><a href="../coming-soon.html">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/prototype.js" defer></script>
+</body>
+</html>
