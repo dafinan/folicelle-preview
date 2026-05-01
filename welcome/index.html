@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folicelle — Welcome</title>
+<meta name="description" content="Your 14-day free Folicelle trial. Method course, Cohort access, basic Toolkit. No credit card required.">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/prototype.css">
+<style>
+:root {
+  --brown:#563622; --terracotta:#AF7153; --ancestral-gold:#DECCA5;
+  --moss-green:#9A9762; --moss-deep:#7E7B4E; --cream:#F5EFE2;
+  --cream-soft:#EFE8D8; --gold-light:#ECDFC0; --brown-deep:#3C2616;
+  --line:rgba(86,54,34,0.18);
+  --display:'DM Serif Display','Canela',Georgia,serif;
+  --serif:'Cormorant Garamond','Canela',Georgia,serif;
+  --sans:'Inter','Apercu Pro',-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.65;color:var(--brown);background:var(--cream);-webkit-font-smoothing:antialiased;}
+img{max-width:100%;height:auto;display:block;}
+.container{max-width:1280px;margin:0 auto;padding:0 32px;}
+.container-narrow{max-width:920px;margin:0 auto;padding:0 32px;}
+
+.nav{position:sticky;top:0;z-index:100;background:var(--cream);border-bottom:1px solid var(--line);padding:18px 0;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 32px;}
+.nav-wordmark{font-family:var(--display);font-size:22px;letter-spacing:0.08em;color:var(--ancestral-gold);text-transform:uppercase;text-decoration:none;}
+.nav-wordmark sup{font-size:9px;vertical-align:super;}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{color:var(--brown);text-decoration:none;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;}
+.nav-links a:hover{color:var(--terracotta);}
+.nav-right{display:flex;gap:18px;align-items:center;}
+.nav-cta{background:var(--brown);color:var(--ancestral-gold);padding:10px 22px;border-radius:2px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;}
+.nav-cta:hover{background:var(--terracotta);}
+.nav-cart{width:32px;height:32px;border:1px solid var(--brown);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--brown);text-decoration:none;}
+@media (max-width:880px){.nav-links{display:none;}}
+
+.btn-primary{background:var(--brown);color:var(--ancestral-gold);padding:16px 36px;border-radius:2px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-weight:500;transition:all 0.25s;display:inline-block;border:1px solid var(--brown);cursor:pointer;}
+.btn-primary:hover{background:var(--terracotta);border-color:var(--terracotta);}
+.btn-secondary{background:transparent;color:var(--brown);padding:16px 30px;border-radius:2px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-weight:500;border:1px solid var(--brown);transition:all 0.25s;display:inline-block;cursor:pointer;}
+.btn-secondary:hover{background:var(--brown);color:var(--ancestral-gold);}
+
+/* HERO */
+.hero{background:var(--cream-soft);padding:90px 0 100px;}
+.hero-inner{max-width:820px;margin:0 auto;padding:0 32px;text-align:center;}
+.hero-fh{font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:0.42em;text-transform:uppercase;color:var(--terracotta);margin-bottom:32px;}
+.hero-headline{font-family:var(--display);font-style:italic;font-size:clamp(40px,5.5vw,68px);line-height:1.04;color:var(--brown);margin-bottom:24px;font-weight:400;}
+.hero-subhead{font-size:18px;line-height:1.7;color:var(--brown);margin-bottom:32px;font-weight:300;max-width:640px;margin-left:auto;margin-right:auto;}
+.hero-ctas{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center;}
+.hero-microline{margin-top:36px;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--brown);opacity:0.7;}
+.hero-microline span{margin:0 12px;}
+
+/* SOURCE-CONDITIONAL INTRO BAND */
+.source-band{padding:36px 0 0;}
+.source-card{
+  max-width:820px;margin:0 auto;padding:0 32px;
+}
+.source-card-inner{
+  background:var(--ancestral-gold);
+  padding:24px 32px;
+  border-radius:2px;
+  display:flex;align-items:flex-start;gap:18px;
+  border:1px solid var(--line);
+}
+.source-card-inner.qr{background:#E8DFC2;}
+.source-card-inner.gift{background:var(--gold-light);}
+.source-card-inner.editor{background:var(--cream-soft);border:1px dashed var(--terracotta);}
+.source-icon{width:36px;height:36px;border:1px solid var(--brown);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:14px;color:var(--brown);font-style:italic;flex-shrink:0;}
+.source-content{flex:1;}
+.source-content .source-eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:var(--brown);opacity:0.85;font-weight:600;margin-bottom:6px;}
+.source-content p{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.55;color:var(--brown);}
+
+section.std{padding:110px 0;position:relative;}
+section.std.tight{padding:80px 0;}
+section.std.alt{background:var(--cream-soft);}
+.section-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--terracotta);font-weight:500;margin-bottom:24px;}
+.section-title{font-family:var(--display);font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;color:var(--brown);margin-bottom:28px;}
+.section-title.italic{font-style:italic;}
+.section-lead{font-size:18px;line-height:1.7;color:var(--brown);font-weight:300;max-width:680px;margin-bottom:48px;}
+.section-header-center{text-align:center;margin-bottom:64px;}
+.section-header-center .section-lead{margin:0 auto;}
+
+/* HOW TRIAL WORKS — 3 steps */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.how-step{padding:36px 32px;background:var(--cream);border:1px solid var(--line);border-radius:2px;}
+.how-num{font-family:var(--display);font-size:48px;line-height:1;color:var(--terracotta);margin-bottom:16px;font-weight:400;}
+.how-name{font-family:var(--display);font-size:20px;color:var(--brown);margin-bottom:10px;font-weight:400;line-height:1.2;}
+.how-body{font-size:14px;line-height:1.65;color:var(--brown);font-weight:300;}
+@media (max-width:880px){.how-grid{grid-template-columns:1fr;}}
+
+/* TIMELINE — what you'll experience */
+.timeline-band{background:var(--brown);color:var(--ancestral-gold);}
+.timeline-band .section-eyebrow{color:var(--ancestral-gold);opacity:0.85;}
+.timeline-band .section-title{color:var(--ancestral-gold);}
+.timeline-band .section-lead{color:var(--ancestral-gold);opacity:0.95;}
+.timeline-list{list-style:none;max-width:780px;margin:0 auto;}
+.timeline-list li{padding:24px 0;border-top:1px solid rgba(222,204,165,0.25);position:relative;padding-left:88px;}
+.timeline-list li:first-child{border-top:none;}
+.timeline-list li::before{content:attr(data-day);position:absolute;left:0;top:24px;font-family:var(--display);font-size:13px;color:var(--terracotta);letter-spacing:0.12em;text-transform:uppercase;font-weight:400;width:72px;}
+.timeline-list li strong{font-family:var(--display);font-size:18px;color:var(--ancestral-gold);font-weight:400;display:block;margin-bottom:6px;line-height:1.2;}
+.timeline-list li p{font-size:14px;line-height:1.7;color:var(--ancestral-gold);opacity:0.92;font-weight:300;}
+
+/* PRIVACY PROMISE */
+.privacy{background:var(--moss-green);color:var(--cream);}
+.privacy .section-eyebrow{color:var(--ancestral-gold);}
+.privacy .section-title{color:var(--cream);}
+.privacy-inner{max-width:820px;margin:0 auto;padding:0 32px;}
+.privacy-list{list-style:none;}
+.privacy-list li{padding:22px 0;border-top:1px solid rgba(245,239,226,0.25);position:relative;padding-left:36px;font-size:15px;line-height:1.7;color:var(--cream);font-weight:300;opacity:0.95;}
+.privacy-list li:first-child{border-top:none;}
+.privacy-list li::before{content:"⌖";position:absolute;left:0;top:22px;color:var(--ancestral-gold);font-family:var(--display);font-size:18px;}
+
+/* TRIAL VS PATHS */
+.paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.path-card{background:var(--cream);padding:36px 28px 32px;display:flex;flex-direction:column;}
+.path-card.featured{background:var(--brown);color:var(--ancestral-gold);}
+.path-eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:var(--terracotta);margin-bottom:12px;font-weight:500;}
+.path-card.featured .path-eyebrow{color:var(--ancestral-gold);opacity:0.9;}
+.path-name{font-family:var(--display);font-size:22px;line-height:1.2;color:var(--brown);margin-bottom:8px;font-weight:400;}
+.path-card.featured .path-name{color:var(--ancestral-gold);}
+.path-price{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--brown);opacity:0.85;margin-bottom:20px;}
+.path-card.featured .path-price{color:var(--ancestral-gold);opacity:0.95;}
+.path-body{font-size:13px;line-height:1.65;color:var(--brown);font-weight:300;flex-grow:1;margin-bottom:20px;}
+.path-card.featured .path-body{color:var(--ancestral-gold);opacity:0.95;}
+.path-cta{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;color:var(--brown);border-bottom:1px solid var(--brown);padding-bottom:4px;align-self:flex-start;font-weight:500;}
+.path-card.featured .path-cta{color:var(--ancestral-gold);border-color:var(--ancestral-gold);}
+@media (max-width:980px){.paths-grid{grid-template-columns:1fr;}}
+
+/* HERO STORY COMPRESSED */
+.hero-story{background:var(--cream-soft);}
+.hero-story-inner{max-width:780px;margin:0 auto;padding:0 32px;}
+.hero-story p{font-size:16px;line-height:1.85;color:var(--brown);margin-bottom:18px;font-weight:300;}
+.hero-story p:first-of-type::first-line{font-weight:500;}
+
+/* EMAIL CAPTURE */
+.capture{background:var(--cream);}
+.capture-card{
+  max-width:680px;margin:0 auto;
+  background:var(--cream-soft);
+  border:1px solid var(--line);
+  padding:56px 56px;
+  border-radius:2px;
+  text-align:center;
+}
+.capture-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--terracotta);margin-bottom:18px;font-weight:500;}
+.capture-headline{font-family:var(--display);font-style:italic;font-size:clamp(28px,3.2vw,38px);line-height:1.15;color:var(--brown);margin-bottom:18px;font-weight:400;}
+.capture-sub{font-size:15px;line-height:1.7;color:var(--brown);font-weight:300;margin-bottom:32px;}
+.capture-form{display:flex;flex-direction:column;gap:14px;text-align:left;margin-bottom:24px;}
+.capture-input{padding:14px 18px;border:1px solid var(--line);background:var(--cream);font-family:var(--sans);font-size:15px;color:var(--brown);border-radius:2px;}
+.capture-input:focus{outline:none;border-color:var(--brown);}
+.capture-checkbox{display:flex;align-items:flex-start;gap:10px;font-family:var(--serif);font-style:italic;font-size:13px;color:var(--brown);opacity:0.85;line-height:1.5;}
+.capture-checkbox input{margin-top:3px;}
+.capture-cta{width:100%;padding:18px;font-size:13px;}
+.capture-privacy{margin-top:18px;font-family:var(--serif);font-style:italic;font-size:13px;color:var(--brown);opacity:0.7;line-height:1.55;}
+.capture-existing-note{margin-top:24px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--serif);font-style:italic;font-size:13px;color:var(--brown);opacity:0.75;}
+@media (max-width:600px){.capture-card{padding:40px 28px;}}
+
+/* AFTER YOU START */
+.after{background:var(--cream-soft);text-align:center;}
+.after-inner{max-width:680px;margin:0 auto;padding:0 32px;}
+.after-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:24px;}
+.after-list li{padding:14px 18px;background:var(--cream);border:1px solid var(--line);border-radius:2px;text-align:left;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--brown);line-height:1.5;}
+.after-list li::before{content:"→";color:var(--terracotta);margin-right:14px;font-style:normal;font-family:var(--display);font-size:16px;}
+
+/* FINAL CTA */
+.final{position:relative;min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:100px 32px;}
+.final-bg{position:absolute;inset:0;z-index:0;}
+.final-bg img{width:100%;height:100%;object-fit:cover;}
+.final-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(60,38,22,0.4) 0%,rgba(60,38,22,0.78) 100%);}
+.final-content{position:relative;z-index:2;color:var(--cream);max-width:680px;}
+.final h2{font-family:var(--display);font-style:italic;font-size:clamp(32px,4.5vw,52px);line-height:1.1;margin-bottom:24px;color:var(--cream);font-weight:400;}
+.final p{font-size:17px;line-height:1.7;margin-bottom:36px;color:var(--cream);font-weight:300;opacity:0.95;}
+.final .btn-primary{background:var(--ancestral-gold);color:var(--brown);border-color:var(--ancestral-gold);}
+.final .btn-primary:hover{background:var(--terracotta);color:var(--cream);border-color:var(--terracotta);}
+.final-footer-line{margin-top:40px;font-family:var(--display);font-size:14px;letter-spacing:0.32em;text-transform:uppercase;color:var(--ancestral-gold);}
+
+/* MOCKUP STATE NAV — for reviewers to see all 4 source variations */
+.state-nav{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--brown);color:var(--ancestral-gold);padding:10px 18px;border-radius:2px;font-family:var(--sans);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;z-index:300;display:flex;gap:6px;align-items:center;box-shadow:0 4px 24px rgba(60,38,22,0.25);flex-wrap:wrap;}
+.state-nav button{background:rgba(245,239,226,0.15);border:1px solid rgba(245,239,226,0.35);color:var(--ancestral-gold);font-family:var(--sans);font-size:10px;letter-spacing:0.1em;padding:6px 10px;cursor:pointer;border-radius:2px;}
+.state-nav button:hover, .state-nav button.active{background:var(--ancestral-gold);color:var(--brown);}
+.state-nav .state-label{font-weight:600;margin-right:8px;}
+@media (max-width:600px){.state-nav .state-label{width:100%;text-align:center;margin-right:0;margin-bottom:4px;}}
+
+/* FOOTER */
+.footer{background:var(--brown-deep);color:var(--cream);padding:80px 0 40px;}
+.footer-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:48px;margin-bottom:64px;}
+.footer-brand-block{max-width:360px;}
+.footer-wordmark{font-family:var(--display);font-size:28px;letter-spacing:0.08em;color:var(--ancestral-gold);text-transform:uppercase;margin-bottom:18px;display:block;text-decoration:none;}
+.footer-wordmark sup{font-size:11px;vertical-align:super;}
+.footer-tagline{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--cream);opacity:0.85;margin-bottom:28px;line-height:1.5;}
+.footer-col-title{font-family:var(--sans);font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ancestral-gold);margin-bottom:18px;font-weight:500;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:10px;}
+.footer-col a{color:var(--cream);font-size:13px;text-decoration:none;font-weight:300;opacity:0.85;}
+.footer-col a:hover{opacity:1;color:var(--ancestral-gold);}
+.footer-bottom{border-top:1px solid rgba(245,239,226,0.18);padding-top:28px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start;}
+.footer-disclaimer{font-family:var(--serif);font-style:italic;font-size:11px;line-height:1.6;color:var(--cream);opacity:0.55;max-width:700px;}
+.footer-meta{font-family:var(--sans);font-size:11px;letter-spacing:0.08em;color:var(--cream);opacity:0.55;}
+.footer-meta a{color:var(--cream);text-decoration:none;margin-left:16px;}
+.footer-social{display:flex;gap:12px;margin-top:18px;}
+.footer-social a{width:32px;height:32px;border:1px solid rgba(245,239,226,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--cream);text-decoration:none;font-size:11px;}
+@media (max-width:1000px){.footer-grid{grid-template-columns:1fr 1fr;gap:40px;}}
+@media (max-width:600px){.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;}}
+
+/* Source variants — only one visible at a time */
+.source-variant{display:none;}
+.source-variant.active{display:block;}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  <strong>Preview Mode</strong>
+  <em>Welcome page — 4 conditional source states. Click the bottom nav to switch.</em>
+  <span class="pb-divider">·</span>
+  <a href="mailto:dafina@covetandmane.com?subject=Folicelle%20Preview%20Feedback%20%E2%80%94%20Welcome&body=Page%3A%20Welcome%0A%0AYour%20feedback%3A%0A">Send feedback</a>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-wordmark">FOLICELLE<sup>™</sup></a>
+    <div class="nav-links">
+      <a href="../product/foundation.html">Shop</a>
+      <a href="../method.html">The Method</a>
+      <a href="../community/">Community</a>
+      <a href="../coming-soon.html">About</a>
+      <a href="../coming-soon.html">Login</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <div class="nav-right">
+      <a href="../product/foundation.html" class="nav-cta">Subscribe</a>
+      <a href="../coming-soon.html" class="nav-cart">0</a>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu-overlay"></div>
+<div class="mobile-menu" role="navigation" aria-label="Mobile menu">
+  <button class="mobile-menu-close" aria-label="Close menu">×</button>
+  <a href="../product/foundation.html">Shop</a>
+  <a href="../method.html">The Method</a>
+  <a href="../community/">Community</a>
+  <a href="../toolkit/">Toolkit</a>
+  <a href="../care-network/">Care Network</a>
+  <a href="../coming-soon.html">About</a>
+  <a href="../coming-soon.html">Login</a>
+  <a href="../product/foundation.html" class="mobile-menu-cta">Subscribe</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-fh">A&nbsp;DEEPER&nbsp;BEAUTY · WELCOME</div>
+    <h1 class="hero-headline">You're in.</h1>
+    <p class="hero-subhead">
+      The journey begins with fourteen days, free. Method course, Cohort access, basic Self-Advocacy Toolkit. No credit card required, no auto-renewal — we'll email you on day thirteen to ask what you'd like to do next.
+    </p>
+    <div class="hero-ctas">
+      <a href="#capture" class="btn-primary">Start My 14-Day Trial</a>
+      <a href="../coming-soon.html" class="btn-secondary">Already a Member? Sign In</a>
+    </div>
+    <div class="hero-microline">
+      No credit card<span>·</span>14 days free<span>·</span>Cancel anytime
+    </div>
+  </div>
+</section>
+
+<!-- SOURCE-CONDITIONAL BAND -->
+<div class="source-band">
+
+  <!-- DEFAULT (no parameter) -->
+  <div class="source-variant active" data-source="default">
+    <div class="source-card">
+      <div class="source-card-inner">
+        <div class="source-icon">F</div>
+        <div class="source-content">
+          <div class="source-eyebrow">Welcome</div>
+          <p>Glad you're here. Tell us a little about yourself to get started — your 14-day platform trial begins as soon as you do.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR CODE (?source=qr) -->
+  <div class="source-variant" data-source="qr">
+    <div class="source-card">
+      <div class="source-card-inner qr">
+        <div class="source-icon">⬚</div>
+        <div class="source-content">
+          <div class="source-eyebrow">From your Foundation carton</div>
+          <p>Glad you found us. Whether you bought Folicelle for yourself or received it as a gift, your hair wellness journey can start here. The QR code on your carton is the fastest way in.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GIFT TRIAL (?source=gift) -->
+  <div class="source-variant" data-source="gift">
+    <div class="source-card">
+      <div class="source-card-inner gift">
+        <div class="source-icon">✺</div>
+        <div class="source-content">
+          <div class="source-eyebrow">Someone gave you Folicelle</div>
+          <p>We've been waiting for you to start. Your 14-day platform trial is ready when you are — and your gift includes early access to the Cohort, the Method course, and the basic Toolkit. <span style="opacity:0.75;">[If gifter name available: "Sent with care from [Name]."]</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDITOR / VIP (?source=editor) -->
+  <div class="source-variant" data-source="editor">
+    <div class="source-card">
+      <div class="source-card-inner editor">
+        <div class="source-icon">✦</div>
+        <div class="source-content">
+          <div class="source-eyebrow">Editor &amp; VIP welcome</div>
+          <p>Welcome. We've heard you'd like to try Folicelle. Here's everything you need to start — your 14-day platform trial, plus our notes on the brand if you'd like the deeper context.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- HOW THE TRIAL WORKS -->
+<section class="std">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-eyebrow">How the 14-day trial works</div>
+      <h2 class="section-title italic">Three steps, fourteen days.</h2>
+    </div>
+
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-num">01</div>
+        <h3 class="how-name">Take the Hair Wellness Assessment</h3>
+        <p class="how-body">A 60–90 second quiz that maps your likely contributors and routes you to your matched cohort. Postpartum, Perimenopause, Metabolic, or Foundation Path.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">02</div>
+        <h3 class="how-name">Access Your Trial Hub</h3>
+        <p class="how-body">Full course (8 modules) for 14 days · Cohort access · basic Self-Advocacy Toolkit · Care Network awareness. Read at your pace; engage when you're ready.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">03</div>
+        <h3 class="how-name">Decide on Day 14</h3>
+        <p class="how-body">Continue with Foundation subscription (platform free), upgrade to Membership ($19/mo or $179/yr), or simply walk away. No auto-renewal, no hidden charges.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU'LL EXPERIENCE -->
+<section class="std timeline-band">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-eyebrow">Your fourteen days</div>
+      <h2 class="section-title italic" style="color:var(--ancestral-gold)">What unfolds, day by day.</h2>
+      <p class="section-lead" style="color:var(--ancestral-gold);opacity:0.95;">
+        Concrete and specific. Each day adds something — a module, a thread, a decision moment. You'll never feel lost.
+      </p>
+    </div>
+
+    <ul class="timeline-list">
+      <li data-day="Day 1"><strong>Module 1 unlocks · How Hair Actually Works</strong><p>The biology beneath the surface. Includes the heritage story of He Shou Wu, the 1,000-year-old herb that anchors Folicelle.</p></li>
+      <li data-day="Day 3"><strong>Module 2 unlocks · Reading Your Body's Signals</strong><p>The difference between shedding and thinning, telogen and anagen. How to read what your hair is telling you.</p></li>
+      <li data-day="Day 5"><strong>Doctor Script generated</strong><p>Based on your assessment, the Toolkit drafts a request framework you can take to your GP or dermatologist. Specific labs to discuss, plain-language context.</p></li>
+      <li data-day="Day 7"><strong>Cohort welcome thread</strong><p>You're matched into your cohort by now. A welcome thread invites you to introduce yourself when you're ready — and reading without posting is welcome too.</p></li>
+      <li data-day="Day 8"><strong>Module 3 unlocks · The Hormonal Layer</strong><p>Postpartum, perimenopause, GLP-1, post-pill, thyroid. The hormonal shifts that show up first in your hair.</p></li>
+      <li data-day="Day 10"><strong>Photo tracker baseline reminder</strong><p>A soft prompt to take your three baseline photos — front, top, and crown. Stays private by default; sharing with your cohort is opt-in, per photo.</p></li>
+      <li data-day="Day 13"><strong>Email arrives</strong><p>"Your fourteen days are nearly up." Three options laid out plainly: subscribe to Foundation (platform stays free), upgrade to Membership, or close out the trial. No auto-renewal.</p></li>
+      <li data-day="Day 14"><strong>Your decision moment</strong><p>Whichever path you choose, your trial Toolkit data is preserved if you continue with us. If you don't, we hold it for 30 days then delete unless you ask us to keep it.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PRIVACY & HONEST PROMISE -->
+<section class="std privacy">
+  <div class="privacy-inner">
+    <div class="section-eyebrow">Our honest promise</div>
+    <h2 class="section-title italic">No surprises, ever.</h2>
+
+    <ul class="privacy-list">
+      <li><strong style="font-family:var(--sans);font-size:13px;letter-spacing:0.08em;display:block;margin-bottom:6px;color:var(--ancestral-gold);text-transform:uppercase;">No credit card required</strong>First name and email only. The trial is genuinely free — not a "free with $1 charge for shipping" kind of free.</li>
+      <li><strong style="font-family:var(--sans);font-size:13px;letter-spacing:0.08em;display:block;margin-bottom:6px;color:var(--ancestral-gold);text-transform:uppercase;">Your data is private and encrypted</strong>Photos, assessment answers, and any lab values you enter are stored encrypted at rest. We never share with third parties without your explicit, per-share opt-in.</li>
+      <li><strong style="font-family:var(--sans);font-size:13px;letter-spacing:0.08em;display:block;margin-bottom:6px;color:var(--ancestral-gold);text-transform:uppercase;">No auto-renewal</strong>We email you on day thirteen asking what you'd like to do. Nothing happens unless you choose it. Closing the trial is a single click — or simply ignoring the email.</li>
+      <li><strong style="font-family:var(--sans);font-size:13px;letter-spacing:0.08em;display:block;margin-bottom:6px;color:var(--ancestral-gold);text-transform:uppercase;">Trial Toolkit data preserved on subscribe</strong>If you decide to continue with Foundation or Membership, your assessment results, photo tracker, and any lab data carry over. No re-entry, no friction.</li>
+      <li><strong style="font-family:var(--sans);font-size:13px;letter-spacing:0.08em;display:block;margin-bottom:6px;color:var(--ancestral-gold);text-transform:uppercase;">If you don't subscribe, your data sleeps for 30 days then deletes</strong>30 days to change your mind. After that, we delete your data unless you explicitly ask us to keep it. You can also delete it on day one, manually, from your account.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- TRIAL VS PATHS -->
+<section class="std alt">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-eyebrow">Where the trial leads</div>
+      <h2 class="section-title italic">Three paths after day fourteen.</h2>
+      <p class="section-lead">
+        No pressure on day fourteen. Just clarity about where the journey can go, if you want it to.
+      </p>
+    </div>
+
+    <div class="paths-grid">
+
+      <div class="path-card featured">
+        <div class="path-eyebrow">Most Chosen · Subscribe</div>
+        <h3 class="path-name">Folicelle Foundation</h3>
+        <p class="path-price">$184/90 days · $61.30/mo effective</p>
+        <p class="path-body">Full platform stays free. The daily ritual joins it — two gummies, with a meal, formulated with He Shou Wu and the clinical-strength foundation. 90-day satisfaction promise.</p>
+        <a href="../product/foundation.html" class="path-cta">See Foundation →</a>
+      </div>
+
+      <div class="path-card">
+        <div class="path-eyebrow">Platform without supplement</div>
+        <h3 class="path-name">Folicelle Membership</h3>
+        <p class="path-price">$19/month or $179/year</p>
+        <p class="path-body">The Cohort, the Method, basic Toolkit, Care Network discounts. No supplement. For when the timing isn't right for the daily ritual.</p>
+        <a href="../membership/" class="path-cta">See Membership →</a>
+      </div>
+
+      <div class="path-card">
+        <div class="path-eyebrow">Education only</div>
+        <h3 class="path-name">The Method</h3>
+        <p class="path-price">$79 one-time · lifetime course</p>
+        <p class="path-body">Lifetime access to the 8-module course plus the full Toolkit (Doctor Script Generator and Lab Results Module included). One-time purchase, no ongoing billing.</p>
+        <a href="../method.html" class="path-cta">See the Method →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HERO STORY COMPRESSED -->
+<section class="std hero-story">
+  <div class="hero-story-inner">
+    <div class="section-eyebrow" style="text-align:center;">Why Folicelle exists</div>
+    <h2 class="section-title italic" style="text-align:center;">A platform with a daily ritual at its heart.</h2>
+    <p>
+      <strong>Folicelle was built around a simple idea</strong> — that hair wellness sits in the gap the medical system doesn't quite fill. Dermatology sees the surface. GPs run general labs. Stylists see the result, not the cause. Women translate between them all, often after months of being told it's "probably stress."
+    </p>
+    <p>
+      We built the framework we wished we'd had. A daily ritual rooted in He Shou Wu — the 1,000-year-old Eastern hair tonic — paired with a clinical-strength foundation of methylated B-vitamins, copper, zinc, tyrosine, selenium, and chlorella. Around the ritual, a platform: an 8-module course, a community organized by hair stage, a Self-Advocacy Toolkit, and a Care Network of vetted partners.
+    </p>
+    <p>
+      Your fourteen days will give you the platform. The ritual itself is something you decide about on day fourteen — when you've felt enough of the practice to know whether it belongs in your life.
+    </p>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<section class="std capture" id="capture">
+  <div class="capture-card">
+    <div class="capture-eyebrow">Start your 14-day trial</div>
+    <h2 class="capture-headline">Where should we send your trial details?</h2>
+    <p class="capture-sub">First name and email — that's all we need. No credit card, no surprises. The Hair Wellness Assessment loads next.</p>
+
+    <form class="capture-form" onsubmit="event.preventDefault(); alert('Mockup — trial enrollment wires in production. Email + assessment routing happens here.');">
+      <input type="text" class="capture-input" placeholder="First name" required>
+      <input type="email" class="capture-input" placeholder="Email address" required>
+      <label class="capture-checkbox">
+        <input type="checkbox">
+        <span>Send me Folicelle updates — occasional, opt-out anytime.</span>
+      </label>
+      <button type="submit" class="btn-primary capture-cta">Start My 14-Day Trial</button>
+    </form>
+
+    <p class="capture-privacy">Your data is private. We never share it.</p>
+
+    <div class="capture-existing-note">
+      Already have a Folicelle account? If your email matches, we'll route you to your Hub — no new trial needed.
+    </div>
+  </div>
+</section>
+
+<!-- AFTER YOU START -->
+<section class="std after">
+  <div class="after-inner">
+    <div class="section-eyebrow">After you submit</div>
+    <h2 class="section-title italic">What happens next.</h2>
+    <p style="font-size:15px;line-height:1.7;color:var(--brown);font-weight:300;">
+      Three things in quick succession, then the journey is yours.
+    </p>
+    <ul class="after-list">
+      <li>An email lands in your inbox with your trial details and a link to your Hub.</li>
+      <li>The Hair Wellness Assessment opens in a new tab — 60–90 seconds, eight questions.</li>
+      <li>Day 1 of your fourteen-day journey begins. Module 1 unlocks. Welcome.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="final-bg"><img src="../images/leaves.webp" alt=""></div>
+  <div class="final-content">
+    <h2>Fourteen days, on us.</h2>
+    <p>The journey begins with platform access — and a decision moment on day fourteen, no auto-renewal between.</p>
+    <a href="#capture" class="btn-primary">Start My 14-Day Trial</a>
+    <div class="final-footer-line">A&nbsp;Deeper&nbsp;Beauty</div>
+  </div>
+</section>
+
+<div class="send-feedback-block">
+  Reviewing this preview? <a href="mailto:dafina@covetandmane.com?subject=Folicelle%20Preview%20Feedback%20%E2%80%94%20Welcome&body=Page%3A%20Welcome%0A%0AYour%20feedback%3A%0A">Send feedback to Dafina</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-block">
+        <a href="../index.html" class="footer-wordmark">FOLICELLE<sup>™</sup></a>
+        <p class="footer-tagline">A dermatologist-reviewed daily ritual for hair wellness. Built around a platform — not just a supplement.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="#" aria-label="Pinterest">PIN</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Shop</div>
+        <ul>
+          <li><a href="../product/foundation.html">Folicelle Foundation</a></li>
+          <li><a href="../product/weekly/">Weekly Ritual Packets</a></li>
+          <li><a href="../method.html">The Method</a></li>
+          <li><a href="../membership/">Membership</a></li>
+          <li><a href="index.html">Welcome (gift trial)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Platform</div>
+        <ul>
+          <li><a href="../method.html">The Method</a></li>
+          <li><a href="../community/">The Cohort</a></li>
+          <li><a href="../toolkit/">Self-Advocacy Toolkit</a></li>
+          <li><a href="../care-network/">Care Network</a></li>
+          <li><a href="../assessment/">Take the Assessment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">About</div>
+        <ul>
+          <li><a href="../coming-soon.html">Our Story</a></li>
+          <li><a href="../coming-soon.html">Medical Advisor</a></li>
+          <li><a href="../coming-soon.html">Ingredients</a></li>
+          <li><a href="../coming-soon.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Support</div>
+        <ul>
+          <li><a href="../coming-soon.html">Contact Us</a></li>
+          <li><a href="../coming-soon.html">FAQ</a></li>
+          <li><a href="../coming-soon.html">Shipping &amp; Returns</a></li>
+          <li><a href="../coming-soon.html">90-day Promise</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">
+        These statements have not been evaluated by the Food and Drug Administration. The Folicelle 14-day trial provides educational content and platform access. It is not medical advice. Always consult your healthcare provider for medical decisions.
+      </p>
+      <div>
+        <div class="footer-meta">© 2026 Folicelle, a Covet Brands Group company.</div>
+        <div class="footer-meta" style="margin-top:8px;">
+          <a href="../coming-soon.html">Privacy</a><a href="../coming-soon.html">Terms</a><a href="../coming-soon.html">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOCKUP STATE NAV — for reviewers to switch between source variations -->
+<div class="state-nav">
+  <span class="state-label">Mockup view:</span>
+  <button onclick="setSource('default')" class="active" data-btn="default">Default</button>
+  <button onclick="setSource('qr')" data-btn="qr">?source=qr</button>
+  <button onclick="setSource('gift')" data-btn="gift">?source=gift</button>
+  <button onclick="setSource('editor')" data-btn="editor">?source=editor</button>
+</div>
+
+<script src="../js/prototype.js" defer></script>
+<script>
+function setSource(src) {
+  document.querySelectorAll('.source-variant').forEach(el => el.classList.remove('active'));
+  document.querySelector('[data-source="' + src + '"]').classList.add('active');
+  document.querySelectorAll('.state-nav button').forEach(b => b.classList.remove('active'));
+  document.querySelector('[data-btn="' + src + '"]').classList.add('active');
+}
+
+// Read URL parameter for actual production behavior demonstration
+const urlParams = new URLSearchParams(window.location.search);
+const source = urlParams.get('source');
+if (source && ['qr', 'gift', 'editor'].includes(source)) {
+  setSource(source);
+}
+</script>
+</body>
+</html>

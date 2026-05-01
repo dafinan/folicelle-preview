@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folicelle — Weekly Ritual Packets</title>
+<meta name="description" content="A 7-day starter pack — try the Folicelle ritual for one week before committing to a 90-day journey.">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/prototype.css">
+<style>
+:root {
+  --brown:#563622; --terracotta:#AF7153; --ancestral-gold:#DECCA5;
+  --moss-green:#9A9762; --moss-deep:#7E7B4E; --cream:#F5EFE2;
+  --cream-soft:#EFE8D8; --gold-light:#ECDFC0; --brown-deep:#3C2616;
+  --line:rgba(86,54,34,0.18);
+  --display:'DM Serif Display','Canela',Georgia,serif;
+  --serif:'Cormorant Garamond','Canela',Georgia,serif;
+  --sans:'Inter','Apercu Pro',-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.65;color:var(--brown);background:var(--cream);-webkit-font-smoothing:antialiased;}
+img{max-width:100%;height:auto;display:block;}
+.container{max-width:1280px;margin:0 auto;padding:0 32px;}
+.container-narrow{max-width:920px;margin:0 auto;padding:0 32px;}
+
+.nav{position:sticky;top:0;z-index:100;background:var(--cream);border-bottom:1px solid var(--line);padding:18px 0;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 32px;}
+.nav-wordmark{font-family:var(--display);font-size:22px;letter-spacing:0.08em;color:var(--ancestral-gold);text-transform:uppercase;text-decoration:none;}
+.nav-wordmark sup{font-size:9px;vertical-align:super;}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{color:var(--brown);text-decoration:none;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;}
+.nav-links a:hover{color:var(--terracotta);}
+.nav-right{display:flex;gap:18px;align-items:center;}
+.nav-cta{background:var(--brown);color:var(--ancestral-gold);padding:10px 22px;border-radius:2px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;}
+.nav-cta:hover{background:var(--terracotta);}
+.nav-cart{width:32px;height:32px;border:1px solid var(--brown);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--brown);text-decoration:none;}
+@media (max-width:880px){.nav-links{display:none;}}
+
+.btn-primary{background:var(--brown);color:var(--ancestral-gold);padding:16px 36px;border-radius:2px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-weight:500;transition:all 0.25s;display:inline-block;border:1px solid var(--brown);}
+.btn-primary:hover{background:var(--terracotta);border-color:var(--terracotta);}
+.btn-secondary{background:transparent;color:var(--brown);padding:16px 30px;border-radius:2px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-weight:500;border:1px solid var(--brown);transition:all 0.25s;display:inline-block;}
+.btn-secondary:hover{background:var(--brown);color:var(--ancestral-gold);}
+
+/* HERO */
+.hero{background:var(--cream-soft);padding:100px 0 110px;}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;}
+.hero-fh{font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:0.42em;text-transform:uppercase;color:var(--terracotta);margin-bottom:32px;}
+.hero-headline{font-family:var(--display);font-style:italic;font-size:clamp(38px,5vw,64px);line-height:1.04;color:var(--brown);margin-bottom:20px;font-weight:400;}
+.hero-price{font-family:var(--display);font-size:28px;color:var(--brown);margin-bottom:24px;}
+.hero-price .crossout{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--brown);opacity:0.7;margin-left:12px;font-weight:400;}
+.hero-sub{font-size:17px;line-height:1.7;color:var(--brown);margin-bottom:36px;max-width:540px;font-weight:300;}
+.hero-ctas{display:flex;gap:18px;align-items:center;flex-wrap:wrap;}
+.hero-visual{aspect-ratio:4/5;background:var(--gold-light);border-radius:2px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;border:1px solid var(--line);position:relative;}
+.hero-visual::before{content:"";position:absolute;inset:24px;border:1px solid rgba(86,54,34,0.15);}
+.hero-visual-text{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--brown);opacity:0.6;letter-spacing:0.04em;}
+.hero-visual-text span.ph-tag{display:block;font-family:var(--sans);font-style:normal;font-size:10px;letter-spacing:0.32em;text-transform:uppercase;margin-bottom:14px;opacity:0.85;}
+@media (max-width:920px){.hero{padding:60px 0 70px;}.hero-grid{grid-template-columns:1fr;gap:40px;}}
+
+section.std{padding:110px 0;position:relative;}
+section.std.tight{padding:80px 0;}
+section.std.alt{background:var(--cream-soft);}
+.section-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--terracotta);font-weight:500;margin-bottom:24px;}
+.section-title{font-family:var(--display);font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;color:var(--brown);margin-bottom:28px;}
+.section-title.italic{font-style:italic;}
+.section-lead{font-size:18px;line-height:1.7;color:var(--brown);font-weight:300;max-width:680px;margin-bottom:48px;}
+.section-header-center{text-align:center;margin-bottom:64px;}
+.section-header-center .section-lead{margin:0 auto;}
+
+/* WHAT'S INCLUDED — 4 cards */
+.included-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.included-card{background:var(--cream);padding:36px 28px;}
+.included-icon{width:42px;height:42px;border:1px solid var(--terracotta);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);color:var(--terracotta);font-size:14px;margin-bottom:22px;font-style:italic;}
+.included-name{font-family:var(--display);font-size:19px;color:var(--brown);margin-bottom:10px;font-weight:400;line-height:1.2;}
+.included-body{font-size:13px;line-height:1.65;color:var(--brown);font-weight:300;}
+@media (max-width:980px){.included-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:600px){.included-grid{grid-template-columns:1fr;}}
+
+/* WHY A WEEK */
+.why-week{background:var(--moss-green);color:var(--cream);}
+.why-week .section-eyebrow{color:var(--ancestral-gold);}
+.why-week-inner{max-width:820px;margin:0 auto;padding:0 32px;text-align:center;}
+.why-week h2{font-family:var(--display);font-style:italic;font-size:clamp(30px,3.8vw,46px);line-height:1.15;color:var(--cream);margin-bottom:28px;font-weight:400;}
+.why-week-body{font-size:17px;line-height:1.85;color:var(--cream);opacity:0.95;margin-bottom:24px;font-weight:300;}
+
+/* HERITAGE COMPRESSED */
+.heritage{background:var(--brown);color:var(--ancestral-gold);}
+.heritage-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:center;}
+.heritage-image{aspect-ratio:1/1;background:var(--brown-deep);display:flex;align-items:center;justify-content:center;padding:32px;border:1px solid rgba(222,204,165,0.18);}
+.heritage-image-text{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--ancestral-gold);opacity:0.55;text-align:center;line-height:1.55;}
+.heritage-image-text span.ph-tag{display:block;font-family:var(--sans);font-style:normal;font-size:9px;letter-spacing:0.32em;text-transform:uppercase;margin-bottom:14px;opacity:0.85;}
+.heritage-content .section-eyebrow{color:var(--ancestral-gold);opacity:0.85;}
+.heritage h3{font-family:var(--display);font-size:clamp(28px,3.2vw,42px);color:var(--ancestral-gold);margin-bottom:18px;font-weight:400;line-height:1.1;}
+.heritage-body{font-size:15px;line-height:1.85;color:var(--ancestral-gold);opacity:0.95;margin-bottom:18px;font-weight:300;}
+.heritage-link{font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ancestral-gold);text-decoration:none;border-bottom:1px solid rgba(222,204,165,0.5);padding-bottom:4px;display:inline-block;margin-top:14px;}
+.heritage-link:hover{color:var(--terracotta);border-color:var(--terracotta);}
+@media (max-width:880px){.heritage-grid{grid-template-columns:1fr;gap:40px;}}
+
+/* HOW TO TAKE — 3 steps */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.how-step{padding:36px 32px;background:var(--cream);border:1px solid var(--line);border-radius:2px;}
+.how-num{font-family:var(--display);font-size:48px;line-height:1;color:var(--terracotta);margin-bottom:16px;font-weight:400;}
+.how-name{font-family:var(--display);font-size:20px;color:var(--brown);margin-bottom:10px;font-weight:400;line-height:1.2;}
+.how-body{font-size:14px;line-height:1.65;color:var(--brown);font-weight:300;}
+@media (max-width:880px){.how-grid{grid-template-columns:1fr;}}
+
+/* WHAT HAPPENS AFTER — strategic moment */
+.after{background:var(--cream-soft);}
+.after-inner{max-width:820px;margin:0 auto;padding:0 32px;}
+.after-list{list-style:none;}
+.after-list li{padding:24px 0;border-top:1px solid var(--line);position:relative;padding-left:48px;}
+.after-list li:first-child{border-top:none;}
+.after-list li::before{content:attr(data-day);position:absolute;left:0;top:24px;font-family:var(--display);font-size:12px;color:var(--terracotta);letter-spacing:0.18em;text-transform:uppercase;font-weight:400;}
+.after-list li strong{font-weight:500;font-family:var(--sans);font-size:15px;letter-spacing:0.02em;display:block;margin-bottom:6px;color:var(--brown);}
+.after-list li p{font-size:15px;line-height:1.7;color:var(--brown);font-weight:300;}
+.after-promise{margin-top:36px;padding:24px 28px;background:var(--cream);border:1px solid var(--line);border-radius:2px;font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.7;color:var(--brown);text-align:center;}
+
+/* COMPARISON TABLE */
+.compare-table-wrap{overflow-x:auto;}
+.compare-table{width:100%;border-collapse:collapse;background:var(--cream);font-size:14px;min-width:680px;}
+.compare-table th,.compare-table td{text-align:left;padding:18px 20px;border-bottom:1px solid var(--line);vertical-align:top;}
+.compare-table thead th{font-family:var(--display);font-size:18px;color:var(--brown);font-weight:400;border-bottom:2px solid var(--brown);padding:24px 20px;}
+.compare-table thead th.featured{background:var(--brown);color:var(--ancestral-gold);}
+.compare-table tbody tr:nth-child(even){background:var(--cream-soft);}
+.compare-table .name{font-family:var(--display);font-size:16px;color:var(--brown);font-weight:400;display:block;margin-bottom:4px;}
+.compare-table .price{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--brown);opacity:0.85;}
+.compare-table td.featured{background:rgba(86,54,34,0.05);}
+
+/* REVIEWS */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.review-card{background:var(--cream);padding:32px 28px;border-top:2px solid var(--terracotta);border-radius:2px;}
+.review-stars{color:var(--terracotta);letter-spacing:0.18em;font-size:13px;margin-bottom:14px;}
+.review-body{font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.55;color:var(--brown);margin-bottom:18px;font-weight:400;}
+.review-attr{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--brown);opacity:0.7;}
+@media (max-width:880px){.reviews-grid{grid-template-columns:1fr;}}
+
+/* FAQ */
+.faq-list{max-width:820px;margin:40px auto 0;border-top:1px solid var(--line);}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-question{width:100%;background:none;border:none;text-align:left;padding:26px 0;display:flex;justify-content:space-between;align-items:center;gap:24px;cursor:pointer;font-family:var(--display);font-size:19px;line-height:1.3;color:var(--brown);font-weight:400;}
+.faq-question:hover{color:var(--terracotta);}
+.faq-toggle{font-family:var(--display);font-size:24px;color:var(--terracotta);transition:transform 0.3s;flex-shrink:0;}
+.faq-item.open .faq-toggle{transform:rotate(45deg);}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s ease;font-size:15px;line-height:1.75;color:var(--brown);font-weight:300;}
+.faq-item.open .faq-answer{max-height:600px;padding-bottom:26px;}
+
+/* FINAL CTA */
+.final{position:relative;min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:100px 32px;}
+.final-bg{position:absolute;inset:0;z-index:0;}
+.final-bg img{width:100%;height:100%;object-fit:cover;}
+.final-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(60,38,22,0.4) 0%,rgba(60,38,22,0.78) 100%);}
+.final-content{position:relative;z-index:2;color:var(--cream);max-width:680px;}
+.final h2{font-family:var(--display);font-style:italic;font-size:clamp(32px,4.5vw,52px);line-height:1.1;margin-bottom:24px;color:var(--cream);font-weight:400;}
+.final p{font-size:17px;line-height:1.7;margin-bottom:36px;color:var(--cream);font-weight:300;opacity:0.95;}
+.final .btn-primary{background:var(--ancestral-gold);color:var(--brown);border-color:var(--ancestral-gold);}
+.final .btn-primary:hover{background:var(--terracotta);color:var(--cream);border-color:var(--terracotta);}
+.final-footer-line{margin-top:40px;font-family:var(--display);font-size:14px;letter-spacing:0.32em;text-transform:uppercase;color:var(--ancestral-gold);}
+
+/* FOOTER */
+.footer{background:var(--brown-deep);color:var(--cream);padding:80px 0 40px;}
+.footer-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:48px;margin-bottom:64px;}
+.footer-brand-block{max-width:360px;}
+.footer-wordmark{font-family:var(--display);font-size:28px;letter-spacing:0.08em;color:var(--ancestral-gold);text-transform:uppercase;margin-bottom:18px;display:block;text-decoration:none;}
+.footer-wordmark sup{font-size:11px;vertical-align:super;}
+.footer-tagline{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--cream);opacity:0.85;margin-bottom:28px;line-height:1.5;}
+.footer-col-title{font-family:var(--sans);font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ancestral-gold);margin-bottom:18px;font-weight:500;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:10px;}
+.footer-col a{color:var(--cream);font-size:13px;text-decoration:none;font-weight:300;opacity:0.85;}
+.footer-col a:hover{opacity:1;color:var(--ancestral-gold);}
+.footer-bottom{border-top:1px solid rgba(245,239,226,0.18);padding-top:28px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start;}
+.footer-disclaimer{font-family:var(--serif);font-style:italic;font-size:11px;line-height:1.6;color:var(--cream);opacity:0.55;max-width:700px;}
+.tevello-note{font-family:var(--serif);font-style:italic;font-size:11px;color:var(--cream);opacity:0.5;margin-top:12px;line-height:1.6;}
+.footer-meta{font-family:var(--sans);font-size:11px;letter-spacing:0.08em;color:var(--cream);opacity:0.55;}
+.footer-meta a{color:var(--cream);text-decoration:none;margin-left:16px;}
+.footer-social{display:flex;gap:12px;margin-top:18px;}
+.footer-social a{width:32px;height:32px;border:1px solid rgba(245,239,226,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--cream);text-decoration:none;font-size:11px;}
+@media (max-width:1000px){.footer-grid{grid-template-columns:1fr 1fr;gap:40px;}}
+@media (max-width:600px){.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;}}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  <strong>Preview Mode</strong>
+  <em>Weekly Ritual Packets</em>
+  <span class="pb-divider">·</span>
+  <a href="mailto:dafina@covetandmane.com?subject=Folicelle%20Preview%20Feedback%20%E2%80%94%20Weekly&body=Page%3A%20Weekly%20Packets%0A%0AYour%20feedback%3A%0A">Send feedback</a>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../../index.html" class="nav-wordmark">FOLICELLE<sup>™</sup></a>
+    <div class="nav-links">
+      <a href="../foundation.html">Shop</a>
+      <a href="../../method.html">The Method</a>
+      <a href="../../community/">Community</a>
+      <a href="../../coming-soon.html">About</a>
+      <a href="../../coming-soon.html">Login</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <div class="nav-right">
+      <a href="../foundation.html" class="nav-cta">Subscribe</a>
+      <a href="../../coming-soon.html" class="nav-cart">0</a>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu-overlay"></div>
+<div class="mobile-menu" role="navigation" aria-label="Mobile menu">
+  <button class="mobile-menu-close" aria-label="Close menu">×</button>
+  <a href="../foundation.html">Shop</a>
+  <a href="../../method.html">The Method</a>
+  <a href="../../community/">Community</a>
+  <a href="../../toolkit/">Toolkit</a>
+  <a href="../../care-network/">Care Network</a>
+  <a href="../../coming-soon.html">About</a>
+  <a href="../../coming-soon.html">Login</a>
+  <a href="../foundation.html" class="mobile-menu-cta">Subscribe</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-fh">A&nbsp;DEEPER&nbsp;BEAUTY · THE STARTER PACK</div>
+        <h1 class="hero-headline">A week, on us — well, almost.</h1>
+        <p class="hero-price">$29 <span class="crossout">7 days · Folicelle Foundation</span></p>
+        <p class="hero-sub">
+          Seven days of Folicelle Foundation, with platform access while you decide. The starter pack is for women who want to feel the daily ritual before committing to the 90-day journey. Honest about what a week can and can't do — and what comes next if you love it.
+        </p>
+        <div class="hero-ctas">
+          <a href="#cart" class="btn-primary">Add to Cart — $29</a>
+          <a href="../foundation.html" class="btn-secondary">Subscribe to Foundation Instead</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-text">
+          <span class="ph-tag">Visual Placeholder</span>
+          <em>Weekly packet on linen,<br>morning light, water glass<br>and journal in soft focus.<br>Brand-book aesthetic — quiet,<br>not infomercial. Founder note paper detail visible.</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="std">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-eyebrow">In your starter pack</div>
+      <h2 class="section-title italic">Seven days, four ways in.</h2>
+      <p class="section-lead">
+        Your $29 covers more than the gummies. Platform access during your trial week, plus a Welcome Kit that we hope makes the morning ritual feel like a quiet ceremony rather than a chore.
+      </p>
+    </div>
+
+    <div class="included-grid">
+      <div class="included-card">
+        <div class="included-icon">01</div>
+        <h3 class="included-name">7 days of Folicelle Foundation</h3>
+        <p class="included-body">Two gummies daily, with a meal. The same formulation as the monthly carton — He Shou Wu, methylated B-vitamins, copper, zinc, tyrosine, selenium, chlorella.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">02</div>
+        <h3 class="included-name">Method preview · 4 modules</h3>
+        <p class="included-body">7 days of access to Modules 1 through 4 of The Hair Optimization Method. The full 8-module course unlocks with subscription.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">03</div>
+        <h3 class="included-name">Cohort trial · 7 days</h3>
+        <p class="included-body">Sit in on conversations in your matched cohort — Postpartum, Perimenopause, Metabolic, or Foundation Path. Read, reflect; introduce yourself when you're ready.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">04</div>
+        <h3 class="included-name">Welcome Kit + founder note</h3>
+        <p class="included-body">Your packet ships with a handwritten welcome note and a small linen pouch. The smallest things, taken seriously.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY A WEEK -->
+<section class="std why-week">
+  <div class="why-week-inner">
+    <div class="section-eyebrow">Why a week?</div>
+    <h2>Hair takes ninety days. The ritual takes seven.</h2>
+    <p class="why-week-body">
+      We made the starter pack because some decisions deserve a slower yes. A week is enough to learn whether the morning ritual fits your life — whether two gummies feel like a small good thing or a small obligation, whether the platform conversations land, whether the brand voice rings true.
+    </p>
+    <p class="why-week-body">
+      A week is not enough to show you what your hair will do. That takes three to six months, because that's how long a hair cycle is. We won't promise visible change in seven days. We'll promise you'll know whether the ritual is right.
+    </p>
+  </div>
+</section>
+
+<!-- HERITAGE COMPRESSED -->
+<section class="std heritage">
+  <div class="container">
+    <div class="heritage-grid">
+      <div class="heritage-image">
+        <div class="heritage-image-text">
+          <span class="ph-tag">Visual Placeholder</span>
+          <em>Hand-rendered botanical illustration<br>of He Shou Wu root,<br>brand-book aesthetic.</em>
+        </div>
+      </div>
+      <div class="heritage-content">
+        <div class="section-eyebrow">The hero ingredient</div>
+        <h3>A 1,000-year-old herb at the heart of every ritual.</h3>
+        <p class="heritage-body">
+          He Shou Wu — literally "Black-Haired Mr. He" — is the heritage botanical Folicelle Foundation is built around. More than a thousand years ago, Chinese herbal records told the story of a man whose hair returned to its natural color after years of taking the root. The herb has anchored Eastern hair tonics ever since.
+        </p>
+        <p class="heritage-body">
+          Folicelle pairs this lineage with a clinical-strength foundation — methylated B-vitamins, copper, zinc, tyrosine — built for the way modern women's bodies move now.
+        </p>
+        <a href="../../method.html#modules" class="heritage-link">Read the full story →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO TAKE -->
+<section class="std alt">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-eyebrow">How to take Folicelle</div>
+      <h2 class="section-title italic">A small, honest practice.</h2>
+    </div>
+
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-num">01</div>
+        <h3 class="how-name">Two gummies, with a meal</h3>
+        <p class="how-body">Most members take theirs with breakfast. Pairing with food helps absorption of the methylated forms. Set the packet near your coffee and let memory do the rest.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">02</div>
+        <h3 class="how-name">Same time, every day</h3>
+        <p class="how-body">The ritual is built on repetition, not novelty. The 66-day habit window is real; the first week is the practice of remembering.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">03</div>
+        <h3 class="how-name">Notice how it feels by Day 7</h3>
+        <p class="how-body">Less about your hair, more about the practice. Did it fit? Did the platform conversations land? On day seven, you'll have your answer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS AFTER -->
+<section class="std after">
+  <div class="after-inner">
+    <div class="section-eyebrow">What happens after your week</div>
+    <h2 class="section-title italic">Three honest paths.</h2>
+    <p class="section-lead">
+      No auto-renewal. No surprise charges. On day six you'll receive an email asking what you'd like to do next.
+    </p>
+
+    <ul class="after-list">
+      <li data-day="If you love it">
+        <strong>Continue with the 90-day journey</strong>
+        <p>Your starter pack converts into Folicelle Foundation 90-day prepaid at $184 every 90 days — that's $61.30 per month effective. Includes the full Method course (all 8 modules), full Cohort access, the Self-Advocacy Toolkit, and Care Network discounts. Plus Dr. Safahi's Hair Wellness Protocol PDF as a welcome gift, and free shipping.</p>
+      </li>
+      <li data-day="If it's not the right time">
+        <strong>Keep platform access for 30 more days, our gift</strong>
+        <p>You'll lose the supplement at the end of week one, but we'll extend your platform access for another 30 days with no charge. Take the time to keep reading, finish a few modules, decide later. The Method and Cohort are both worth keeping if the timing isn't right for the ritual.</p>
+      </li>
+      <li data-day="If it's a no">
+        <strong>That's a no, full stop</strong>
+        <p>No auto-renewal happens unless you choose it. Your account stays in our system for 30 days in case you change your mind, then we delete your data unless you ask us to keep it. You don't have to email anyone.</p>
+      </li>
+    </ul>
+
+    <p class="after-promise">
+      Whichever path fits, we don't charge anything you didn't ask for. The only auto-charge that ever happens is the 90-day subscription tier — and that one only starts if you opt in.
+    </p>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="std">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-eyebrow">Starter Pack vs. Subscription</div>
+      <h2 class="section-title italic">An honest side-by-side.</h2>
+      <p class="section-lead">
+        The subscription is the better long-term value. The starter pack is the gentler entry. Both are real.
+      </p>
+    </div>
+
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Weekly Starter Pack</th>
+            <th class="featured">Foundation 90-Day Prepaid</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="name">Price</span></td><td><span class="price">$29 one-time</span></td><td class="featured"><span class="price">$184 every 90 days · $61.30/mo effective</span></td></tr>
+          <tr><td>Folicelle Foundation supply</td><td>7 days</td><td class="featured">90 days, repeating</td></tr>
+          <tr><td>Hair Optimization Method (course)</td><td>4 modules · 7-day access</td><td class="featured">All 8 modules · lifetime</td></tr>
+          <tr><td>Cohort community</td><td>7-day trial</td><td class="featured">Full access, ongoing</td></tr>
+          <tr><td>Self-Advocacy Toolkit</td><td>Assessment + Protocol only</td><td class="featured">Full Toolkit (incl. Doctor Script Generator, Lab Results)</td></tr>
+          <tr><td>Care Network discounts</td><td>Awareness only</td><td class="featured">Subscriber rate on partner services</td></tr>
+          <tr><td>Dr. Safahi's Hair Wellness Protocol PDF</td><td>—</td><td class="featured">Included as welcome gift</td></tr>
+          <tr><td>Shipping</td><td>Standard rate</td><td class="featured">Free shipping</td></tr>
+          <tr><td>90-day satisfaction promise</td><td>—</td><td class="featured">Yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="std alt">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-eyebrow">From early starter pack customers</div>
+      <h2 class="section-title italic">A week in, in their words.</h2>
+      <p class="section-lead">
+        Reviews accumulating as our community grows. These reflections come from women in their first 14 days.
+      </p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-body">"I bought the week to see if I'd actually take it. Did. Subscribed on day six."</p>
+        <div class="review-attr">[Placeholder review] · Sarah K. · Day 8</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-body">"The starter pack made the platform feel real. I came for the gummy and stayed for Module 7."</p>
+        <div class="review-attr">[Placeholder review] · Maya R. · Day 12</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-body">"Honest about what a week can do — which made me trust the brand. Decided to give the 90-day journey a real shot."</p>
+        <div class="review-attr">[Placeholder review] · Lauren T. · Day 14</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="std">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-eyebrow">Questions, plainly answered</div>
+      <h2 class="section-title italic">Before your week begins.</h2>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question"><span>Why only 7 days?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-answer"><p>Seven days is enough to feel whether the morning ritual fits your life. It is not enough to show visible hair change — that takes three to six months because that's how long a hair cycle is. The starter pack is honest about what a week is for: deciding if the daily practice belongs in your life, not whether the supplement "works."</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question"><span>Can I just keep buying weekly packets?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-answer"><p>You can, technically. But the 90-day prepaid subscription is meaningfully better value — $61.30 effective per month vs. roughly $116 if you bought four packets a month at $29 each — and it includes the full Method, full Toolkit, full Cohort, and Care Network. We'll prompt you to upgrade after your first week, but we don't block re-purchase.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question"><span>What if I don't like it?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-answer"><p>Then you don't continue. The starter pack is one-time; nothing auto-renews unless you opt in. We'd love to hear what didn't fit — write to support — but you owe us nothing beyond the $29.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question"><span>How does the platform access work after my trial?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-answer"><p>Your 7-day platform access expires at the end of week one. If you don't subscribe to Foundation, we extend your access for an additional 30 days as a gift — partial Method modules and the Cohort trial stay open, with a soft prompt at day 30 about Foundation, the Membership tier, or the standalone Method.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question"><span>When will I see results from the gummy?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-answer"><p>Three to six months for visible changes from any nutritional shift, because hair grows in cycles. Some women report subtle texture or quality differences earlier; some take the full six months. The Method walks through realistic timing in detail.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question"><span>Is the weekly format really lower commitment, or is it just a smaller version of the same thing?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-answer"><p>Honestly: it's both. The formulation is identical to the monthly carton — same gummies, same dosage. What's different is the platform access (limited to 7 days during the trial, with course modules 1–4 instead of all 8) and the price-per-day economics. We made the starter pack because some people need to feel the practice before they commit, not because it's a different product.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question"><span>Does this come with the Doctor Script Generator?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-answer"><p>The basic Toolkit (assessment and starting protocol) is included with the starter pack. The Doctor Script Generator and Lab Results Module are part of the full Toolkit, available with the Foundation subscription or the standalone Method. If the Doctor Script is what you most want, the $79 Method is the most direct path.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question"><span>Is shipping free?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-answer"><p>Standard shipping rate applies on the starter pack. Free shipping is included with the Foundation 90-day prepaid subscription only — that's part of why the subscription is better long-term value.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="cart">
+  <div class="final-bg"><img src="../../images/leaves.webp" alt=""></div>
+  <div class="final-content">
+    <h2>A small yes, before the bigger one.</h2>
+    <p>Seven days of Folicelle Foundation. Platform access while you decide. $29, no commitment beyond the week.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="#cart" class="btn-primary">Try a Week — $29</a>
+      <a href="../foundation.html" class="btn-secondary">Or subscribe and save: $184/90 days</a>
+    </div>
+    <div class="final-footer-line">A&nbsp;Deeper&nbsp;Beauty</div>
+  </div>
+</section>
+
+<div class="send-feedback-block">
+  Reviewing this preview? <a href="mailto:dafina@covetandmane.com?subject=Folicelle%20Preview%20Feedback%20%E2%80%94%20Weekly&body=Page%3A%20Weekly%20Packets%0A%0AYour%20feedback%3A%0A">Send feedback to Dafina</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-block">
+        <a href="../../index.html" class="footer-wordmark">FOLICELLE<sup>™</sup></a>
+        <p class="footer-tagline">A dermatologist-reviewed daily ritual for hair wellness. Built around a platform — not just a supplement.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="#" aria-label="Pinterest">PIN</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Shop</div>
+        <ul>
+          <li><a href="../foundation.html">Folicelle Foundation</a></li>
+          <li><a href="index.html">Weekly Ritual Packets</a></li>
+          <li><a href="../../method.html">The Method</a></li>
+          <li><a href="../../membership/">Membership</a></li>
+          <li><a href="../../welcome/">Welcome (gift trial)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Platform</div>
+        <ul>
+          <li><a href="../../method.html">The Method</a></li>
+          <li><a href="../../community/">The Cohort</a></li>
+          <li><a href="../../toolkit/">Self-Advocacy Toolkit</a></li>
+          <li><a href="../../care-network/">Care Network</a></li>
+          <li><a href="../../assessment/">Take the Assessment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">About</div>
+        <ul>
+          <li><a href="../../coming-soon.html">Our Story</a></li>
+          <li><a href="../../coming-soon.html">Medical Advisor</a></li>
+          <li><a href="../../coming-soon.html">Ingredients</a></li>
+          <li><a href="../../coming-soon.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Support</div>
+        <ul>
+          <li><a href="../../coming-soon.html">Contact Us</a></li>
+          <li><a href="../../coming-soon.html">FAQ</a></li>
+          <li><a href="../../coming-soon.html">Shipping &amp; Returns</a></li>
+          <li><a href="../../coming-soon.html">90-day Promise</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <p class="footer-disclaimer">
+          These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Consult your physician before beginning any new supplement, particularly if you are pregnant, nursing, or taking prescription medication.
+        </p>
+        <p class="tevello-note">Weekly packet buyers receive 7-day Hair Optimization Course access (Modules 1–4) and 7-day Cohort trial via your Hair Wellness Hub.</p>
+      </div>
+      <div>
+        <div class="footer-meta">© 2026 Folicelle, a Covet Brands Group company.</div>
+        <div class="footer-meta" style="margin-top:8px;">
+          <a href="../../coming-soon.html">Privacy</a><a href="../../coming-soon.html">Terms</a><a href="../../coming-soon.html">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../../js/prototype.js" defer></script>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
