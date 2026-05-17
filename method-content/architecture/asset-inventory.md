@@ -71,7 +71,10 @@ REVIEW pass: Dafina to identify 60-90 seconds per Safahi YouTube interview that 
 | Module 6 checklist, "What to change first" | One-page PDF | CREATE |
 | Module 7 sample doctor script | One-page PDF | EXISTS (sample on /toolkit/index.html, needs polish as standalone PDF) |
 | Module 8, Your Updated Protocol | Generated PDF per member | CREATE (logic) |
-| Welcome kit insert (90-day prepaid bonus) | Multi-page PDF | EXISTS (referenced in master handoff Section 1, confirm with Dafina) |
+| Welcome kit insert (Foundation 90-day prepaid bonus) | Multi-page PDF | CREATE (needs design help per Dafina) |
+| The Method Welcome Booklet ($79 standalone bundle) | Printed multi-page booklet | CREATE |
+| The Lab Reference Pack ($79 standalone bundle) | Multi-page PDF | CREATE |
+| The Self-Advocacy Letter Templates ($79 standalone bundle) | Multi-page PDF | CREATE |
 
 Design: Folicelle brand book aesthetic. Canela display + Apercu Pro body where licensed fonts available, DM Serif Display + Inter substitutes otherwise. Brand color palette per `tevello-configuration.md`. Layout treatment matches `/toolkit/` sample doctor script and the existing site PDP. Designer hours per master handoff Section 20 (annual designer budget of roughly $3K to $5K).
 
@@ -84,7 +87,7 @@ Design: Folicelle brand book aesthetic. Canela display + Apercu Pro body where l
 | Public Hair Stage Assessment (folicelle.com/assessment) | CREATE (mockup exists, instrument needed) | Lovable prototype, then Shopify Customer Account UI Extension |
 | In-Course Baseline Assessment (Tevello-gated) | CREATE | Same Lovable build, deeper instrument |
 | Course-Completion Re-assessment (Module 8) | CREATE | Same Lovable build, post-course variant |
-| Doctor Script Generator (AI-powered, personalized) | CREATE | Lovable + Claude API |
+| Doctor Script Generator (AI-powered, modeled on Nik Sharma roast.nik.co pattern) | CREATE | Lovable + Claude API |
 | Photo Tracker | CREATE | Shopify Customer Account UI Extension |
 | Lab Results Module | CREATE | Shopify Customer Account UI Extension |
 | Journey Dashboard | CREATE | Shopify Customer Account UI Extension |
@@ -191,20 +194,54 @@ Community moderator: hire 5 to 10 hours per week per master handoff Section 1. C
 
 ---
 
+# 7.5 The $79 standalone bundle (Option C confirmed by Dafina 2026-05-17)
+
+The $79 Hair Optimization Method standalone product is differentiated from the Foundation-included course by a tangible welcome bundle, not by higher production value on the video. The bundle ships physically to every $79 buyer:
+
+| Bundle component | Type | Status |
+|---|---|---|
+| The Method Welcome Booklet (printed) | Multi-page booklet in brand book aesthetic | CREATE (designer brief) |
+| The Lab Reference Pack | Multi-page PDF, expanded version of Module 4 lab reference | CREATE |
+| The Self-Advocacy Letter Templates | Multi-page PDF, expanded version of Module 7 doctor script samples | CREATE |
+| Folicelle Foundation, one-week sample (weekly packet) | Existing inventory SKU | EXISTS (allocation question, see below) |
+| Klaviyo conversion sequence: 3 emails over first 7 days for $79 buyers | Email automation | CREATE |
+
+**Strategic intent**: the weekly sample is the conversion mechanism. A $79 buyer receives the printed kit and the seven-day Foundation supply. The buyer experiences the daily ritual without a subscription commitment. The conversion sequence asks for the subscription at day 7 with the question, "Did the ritual feel right? Here is the 90-day prepaid path."
+
+**Inventory tension to flag**: the master handoff Section 7 allocates the 1,106 weekly packets across editor/creator gifting (250), TikTok Shop (350), folicelle.com starter pack (300), and subscriber add-on (200). Total allocated: 1,100. No allocation exists today for $79 Method bundles.
+
+Three options for resolving the inventory tension:
+
+1. **Reallocate**. Pull 200 to 300 units from TikTok Shop or starter pack allocation. Net effect: fewer TikTok Shop sales at $24, more Method bundle conversions to $61.30 per month subscription. Higher LTV per unit.
+2. **Reorder**. Plan a second weekly packet manufacturing run to expand inventory before Method standalone launches at scale. Lead time and unit economics depend on the lab partner.
+3. **Cap the bundle**. Launch promo: "First 500 customers receive the weekly sample with their Method purchase." Treated as a limited-edition welcome moment.
+
+Recommendation: Option 1 for launch, Option 2 for sustained Method standalone economics. Dafina confirms the inventory call before Prompt 3.
+
+**Cost impact on the $79 product margin**:
+- Weekly packet COGS: ~$3.00
+- Printed booklet, designer + print: ~$3 to $5 per unit at modest run
+- PDF protocol packs: no per-unit COGS (digital)
+- Shipping (mailed kit + sample): ~$5 to $8 USPS
+- Total bundle cost: ~$11 to $16 per $79 sale
+- Resulting standalone Method margin: ~80 to 86 percent, still inside the 85 percent DTC discipline at the upper end
+
+---
+
 # 8. Filming logistics (per Dafina)
 
 | Element | Detail |
 |---|---|
 | Primary location | Chelsea office (Covet & Mane editorial space, "perfect lighting" per the essay) |
 | Secondary location | Westport home, for grounded conversational moments |
-| Tertiary location | Westport backyard, with sister, for "back to nature" outdoor B-roll |
+| Tertiary location | Westport backyard, for outdoor B-roll. Sister can operate camera. Backyard is Dafina's house, no permission needed. No kids on camera. |
 | Tone target | Grounded. Real conversations. Back to nature. Not studio-clinical. |
-| Cinematographer | TBD (Lucas, external, or mixed per module) (confirm) |
-| Audio | Lavalier per shoot day, room sound captured for ambience (confirm) |
-| Wardrobe | Three to five rotations across the eight modules. Wardrobe stylist TBD (confirm) |
-| Teleprompter | TBD per module. Module 7 likely no prompter for emotional authenticity (confirm) |
-| Video hosting | Vimeo paid account exists. Default to Vimeo for core modules. Private YouTube acceptable for December reflection livestream capture |
-| Shoot days estimated | 2 to 3 days for the 8 core modules + 3 bonus modules, plus 1 outdoor B-roll day with sister |
+| Cinematographer | Ian (primary shooter). Editing mixed with Lucas (Lucas likely primary editor). |
+| Wardrobe | Self-styled by Dafina to the Sage brand archetype. No stylist. Three to five rotations across the eight modules, founder-curated. |
+| Teleprompter | Hybrid. Teleprompter as backbone, off-the-cuff where the subject calls for it. Module 7 leans more off-the-cuff for emotional authenticity. |
+| Module 7 visual treatment | Founder talking head plus lab printout B-roll (per Dafina). Personal information redacted on any visible lab document. |
+| Video hosting | Vimeo paid account exists. Default to Vimeo for core modules. Private YouTube acceptable for December reflection livestream capture. |
+| Shoot days estimated | 2 to 3 days for the 8 core modules + 3 bonus modules, plus 1 outdoor B-roll day. |
 
 ---
 
@@ -218,17 +255,24 @@ The essay is the canonical narrative spine. Modules 4 and 7 lean on it directly.
 
 ---
 
-# 10. Open CONFIRM items for Dafina
+# 10. Resolved CONFIRM items (Dafina 2026-05-17)
 
-1. **Cinematographer**: Lucas, external, or mixed. Affects shoot scheduling.
-2. **Wardrobe stylist**: yes or no for the 8-module shoot.
-3. **Teleprompter or scripted talking-head per module**: per-module decision.
-4. **Care Network primary partner**: EverlyWell, LetsGetChecked, or Quest Labs as Tier 2 anchor. Affects Module 4 references and the Care Network module copy.
-5. **Standalone $79 production polish**: master handoff suggests an additional $5K to $10K for higher production value on the standalone product. Confirm budget envelope.
-6. **Welcome kit insert PDF**: confirm exists, or queue as CREATE.
-7. **B-roll permissions and family-on-camera consent**: especially for the backyard with the sister, and any kids if they appear.
-8. **Module 7 visual treatment**: founder-only talking head, or include actual lab printout B-roll (with personal information redacted).
-9. **Sister identity on camera**: named or unnamed, what role she plays.
+1. **Cinematographer**: Ian primary shooter, Lucas primary editor (mixed).
+2. **Wardrobe stylist**: none. Self-styled to Sage archetype.
+3. **Teleprompter**: hybrid. Teleprompter backbone plus off-the-cuff moments.
+4. **Care Network partners**: EverlyWell, LetsGetChecked, Quest Labs as Tier 2. **Recommended, NOT endorsed**. No affiliate or partnership framing in launch copy. Phrase as "options I recommend" or "examples include."
+5. **Standalone $79 production polish**: Option C confirmed. Same production tier across the course. Differentiation lives in the physical welcome bundle (printed booklet + Lab Reference Pack + Self-Advocacy Letter Templates + one-week Foundation sample as conversion mechanism).
+6. **Welcome kit insert PDF**: queued as CREATE. Needs designer.
+7. **Backyard permissions and family on camera**: Dafina's house, no permission needed. No kids on camera ever. Sister can operate camera but is never in the material.
+8. **Module 7 visual treatment**: founder talking head plus lab printout B-roll, with personal information redacted on visible documents.
+9. **Sister identity on camera**: camera operator only, never in the material.
+
+# Still open for Dafina
+
+A. **Weekly packet inventory allocation** for the $79 Method bundle: Option 1 (reallocate from TikTok or starter pack), Option 2 (reorder), or Option 3 (capped launch promo). See Section 7.5.
+B. **Doctor Script Generator prompt template content** (produced in Cowork Prompt 3 with claims attorney review).
+C. **Module-by-module length lock** within the proposed ranges (Dafina confirms per module before Cowork Prompt 2 produces scripts).
+D. **Founding member program logistics**: 50 to 100 SP customers and friends of brand invited 2 weeks before public Method launch. Per master handoff Section 5.
 
 ---
 
