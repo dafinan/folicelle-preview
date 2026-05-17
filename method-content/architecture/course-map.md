@@ -15,7 +15,7 @@ The Method runs on an annual January to December rhythm. All eight core modules 
 Two entry points, one course:
 
 1. **Foundation subscriber.** Course access is included with the subscription (90-day prepaid, monthly, or annual). Community access is included. Toolkit access is included.
-2. **Standalone Method buyer.** $79 one-time grants lifetime course access, 30-day community trial, full Toolkit access, Care Network awareness. Upgrade to Foundation later credits the $79.
+2. **Standalone Method buyer.** $79 one-time grants lifetime course access, 30-day community trial, full Toolkit access, Care Network awareness. The standalone product also includes a physical welcome kit mailed to the buyer: a printed booklet (Method welcome + Lab Reference Pack + Self-Advocacy Letter Templates), and a complimentary one-week Folicelle Foundation sample (weekly packet) so the buyer can experience the daily ritual. The weekly sample is the conversion mechanism. Upgrade to Foundation later credits the $79.
 
 ---
 
@@ -143,20 +143,37 @@ The instrument lives in the Self-Advocacy Toolkit and renders inside Tevello via
 
 # The Doctor Script Generator
 
-A personalized one-page request framework the member prints and brings to a GP or dermatologist appointment. Built as an AI-powered generator inside the Self-Advocacy Toolkit, similar in pattern to Nick Sharma's customized landing page approach. The model ingests:
+A personalized one-page request framework the member prints and brings to a GP or dermatologist appointment. Built as an AI-powered generator inside the Self-Advocacy Toolkit, modeled on the pattern Nik Sharma uses at roast.nik.co. The product is the product. Member pays once (Foundation subscription or $79 Method standalone). The generator outputs a structured, specific, shareable script. No upsell.
+
+The model ingests:
 
 - The member's Baseline Assessment answers.
 - The labs and language referenced in the eight core modules.
 - The member's stage tag (Postpartum, Perimenopause, Metabolic, Foundation).
+- Any prior labs the member has entered into the Toolkit Lab Results Module.
 
-The model outputs a one-page printable script with:
+The model outputs a one-page printable script with five structured sections:
 
-- Patient context paragraph customized to the member's situation.
-- Labs to discuss, ranked by relevance to the member's stage.
-- A short plain-language justification per lab.
-- A notes section the member fills in during the appointment.
+1. **Patient context paragraph** customized to the member's situation (stage, duration of hair changes, current regimen).
+2. **Labs to discuss**, ranked by relevance to the member's stage. Ferritin first for Iron-related stages, full thyroid panel first for thyroid-symptom stages, sex hormones first for perimenopause, etc.
+3. **Plain-language justification** per lab, one to two sentences each, sourced from Module 4 vocabulary.
+4. **Notes section** the member fills in during the appointment.
+5. **Required disclaimer** at the foot of the page.
 
-Build approach: Lovable prototype in v1, ported to a Shopify Customer Account UI Extension. Claude API as the model, with the prompt template versioned and held in `/method-content/prompts/`. Output legal disclaimer ("This script is educational and intended to support a conversation with your healthcare provider. It is not a diagnosis or prescription.") is non-negotiable per master handoff Section 3. Claims attorney reviews the prompt template before launch.
+The script has a permanent member-account link plus a PDF export. Members can regenerate it before each appointment as their context changes.
+
+**Specificity is enforced in the prompt** (the Nik Sharma rule). The prompt template explicitly bans:
+
+- Diagnostic language ("you have," "this means," "this is caused by")
+- FTC-forbidden verbs ("treats, cures, prevents, reverses, combats, stops")
+- Vague adjectives ("optimal, comprehensive, holistic" as filler)
+- Generic placeholder copy (the AI must produce a specific lab list, not "consider relevant labs")
+
+The prompt template lives at `/method-content/prompts/doctor-script-template.md` (produced in Cowork Prompt 3). Claims attorney reviews the template before launch. Output disclaimer is non-negotiable per master handoff Section 3:
+
+> This script is educational and intended to support a conversation with your healthcare provider. It is not a diagnosis, prescription, or recommendation for any specific lab. Your provider will determine which tests are appropriate based on your individual circumstances.
+
+**Build approach**: Lovable prototype in v1, ported to a Shopify Customer Account UI Extension. Claude API as the model (Opus or Sonnet, chosen on quality of medical-tone output during testing, same way Nik chose Opus over GPT-5.5). Lovable handles the form, the prompt construction, the Claude API call, the rendered output page, and the PDF export.
 
 The static sample on `/toolkit/index.html` stays as the marketing illustration of what the generator produces. The live generator delivers the personalized version once the member is logged in.
 
